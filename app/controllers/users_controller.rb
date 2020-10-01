@@ -1,7 +1,29 @@
 class UsersController < ApplicationController
+  def index
+    @user = User.all
+  end
+  
   def new
+    @user = User.new
   end
 
-  def create
+  def show
+    @user = User.find(params[:id ])
   end
+  
+
+  def create
+    @user = User.new(user_params)
+    if @user.save 
+      p @user.errors.count
+      redirect_to @user, alert: "User created successfully."
+    else
+      redirect_to new_user_path, alert: "Error when creating user."
+    end
+  end
+
+  def user_params
+    params.require(:user).permit(:username,:password,:salt,:encrypted_password)
+  end
+  
 end

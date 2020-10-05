@@ -1,0 +1,11 @@
+<div class=container>
+    <% @questions.each do |q| %>
+    <div class="media">
+        <div class="media-left">
+            <p><%= q.email %></p>
+            <p><%= q.body %></p>
+            <p><%= q.gravatar %></p>
+        </div>
+    </div>
+    <% end %>
+</div>

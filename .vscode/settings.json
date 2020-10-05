@@ -1,0 +1,6 @@
+{
+    "typescript.tsdk": "",
+    "workbench.settings.editor": "json",
+    "rufo.exe": "rufo",
+    "rufo.useBundler": false
+}

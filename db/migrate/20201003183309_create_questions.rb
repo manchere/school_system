@@ -1,4 +1,6 @@
-class CreateQuestions < ActiveRecord::Migration[6.0]
+# frozen_string_literal: true
+
+class CreateQuestions < ActiveRecord::Migration[6.0] # rubocop:todo Style/Documentation
   def change
     create_table :questions do |t|
       t.string :email, null: false

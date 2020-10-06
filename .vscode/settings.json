@@ -1,6 +1,13 @@
 {
-    "typescript.tsdk": "",
-    "workbench.settings.editor": "json",
-    "rufo.exe": "rufo",
-    "rufo.useBundler": false
+  "typescript.tsdk": "",
+  "workbench.settings.editor": "json",
+  "rufo.exe": "rufo",
+  "rufo.useBundler": false,
+  "ruby.rubocop.executePath": "",
+  "ruby.rubocop.configFilePath": ".rubocop.yml",
+  "ruby.rubocop.onSave": true,
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "editor.formatOnSaveTimeout": 5000,
+  "ruby.format": "rubocop"
 }

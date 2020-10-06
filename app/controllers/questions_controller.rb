@@ -1,14 +1,13 @@
-class QuestionsController < ApplicationController
+# frozen_string_literal: true
+
+class QuestionsController < ApplicationController # rubocop:todo Style/Documentation
   def index
-    @questions  = Question.order(created_at: :desc).all
+    @questions = Question.order(created_at: :desc).all
   end
 
-  def show
-  end
+  def show; end
 
-  def create
-  end
+  def create; end
 
-  def delete
-  end
+  def delete; end
 end

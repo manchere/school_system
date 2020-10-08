@@ -62,4 +62,5 @@ gem 'bcrypt'
 
 gem 'gravtastic'
 
-gem 'rubocop'
+# rubocop linter/code formatter
+gem 'rubocop', '~> 0.92.0', require: false

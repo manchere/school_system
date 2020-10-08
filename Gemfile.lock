@@ -232,7 +232,7 @@ DEPENDENCIES
   puma (~> 4.1)
   rails (~> 6.0.3, >= 6.0.3.3)
   rss
-  rubocop
+  rubocop (~> 0.92.0)
   sass-rails (>= 6)
   selenium-webdriver
   spring

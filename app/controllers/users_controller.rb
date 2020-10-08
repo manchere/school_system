@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class UsersController < ApplicationController # rubocop:todo Style/Documentation
+class UsersController < ApplicationController
   def index
     @user = User.all
   end

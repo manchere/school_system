@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class QuestionsController < ApplicationController # rubocop:todo Style/Documentation
+class QuestionsController < ApplicationController
   def index
     @questions = Question.order(created_at: :desc).all
   end

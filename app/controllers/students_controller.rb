@@ -4,7 +4,7 @@ class StudentsController < ApplicationController
   # GET /students
   # GET /students.json
   def index
-    @students = Student.all
+    @students = Student.order 'firstname ASC'
   end
 
   # GET /students/1
@@ -24,6 +24,10 @@ class StudentsController < ApplicationController
   # POST /students
   # POST /students.json
   def create
+    # instantiate a new object using form parameters 
+    # save the object 
+    # if save suceeds, redirect to the index action
+    # if save fails, redisplay the form so user can find
     @student = Student.new(student_params)
 
     respond_to do |format|

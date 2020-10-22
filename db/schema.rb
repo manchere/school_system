@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -12,21 +10,60 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_201_003_183_309) do
+ActiveRecord::Schema.define(version: 2020_10_22_154052) do
+
   # These are extensions that must be enabled in order to support this database
-  enable_extension 'plpgsql'
+  enable_extension "plpgsql"
 
-  create_table 'questions', force: :cascade do |t|
-    t.string 'email', null: false
-    t.text 'body', null: false
-    t.datetime 'created_at', precision: 6, null: false
-    t.datetime 'updated_at', precision: 6, null: false
+  create_table "classroom_students", force: :cascade do |t|
+    t.date "date_from"
+    t.date "date_to"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table 'users', force: :cascade do |t|
-    t.string 'username'
-    t.string 'password_digest'
-    t.datetime 'created_at', precision: 6, null: false
-    t.datetime 'updated_at', precision: 6, null: false
+  create_table "classrooms", force: :cascade do |t|
+    t.string "class_name"
+    t.string "class_type"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
+
+  create_table "schools", force: :cascade do |t|
+    t.string "school_name"
+    t.string "school_digital_address"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "students", force: :cascade do |t|
+    t.string "firstname"
+    t.string "surname"
+    t.date "DOB"
+    t.date "admission_date"
+    t.text "address"
+    t.string "nationality"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "subjects", force: :cascade do |t|
+    t.string "subject_name"
+    t.string "subject_code"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "teachers", force: :cascade do |t|
+    t.string "firstname"
+    t.string "middle_name"
+    t.string "surname"
+    t.date "DOB"
+    t.date "date_of_employment"
+    t.string "contact"
+    t.string "email_address"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
 end

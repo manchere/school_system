@@ -1,0 +1,10 @@
+<%= link_to  '<< Back to list', students_path, class: 'warning' %>
+
+<div class="delete">
+    <h2>Delete Subject</h2>
+    <%= form_for(@student, url: students_path, method: 'post') do |f| %>
+    <p></p>
+    <div class="form-buttons"></div>
+    <%= f.submit "Delete subject" %>
+    <% end %>
+</div>

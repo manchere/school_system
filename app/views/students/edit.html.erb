@@ -1,6 +1,12 @@
 <h1>Editing Student</h1>
 
-<%= render 'form', student: @student %>
+<%= render 'form', student: @student, locals: %>
 
 <%= link_to 'Show', @student %> |
 <%= link_to 'Back', students_path %>
+
+<br>
+    <p><%= link_to  "text", edit_student_path(@student) %></p>
+    <div>
+        <p><%%></p>
+    </div>

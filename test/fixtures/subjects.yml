@@ -1,0 +1,18 @@
+# == Schema Information
+#
+# Table name: subjects
+#
+#  id           :bigint           not null, primary key
+#  subject_code :string
+#  subject_name :string
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#
+
+one:
+  subject_name: MyString
+  subject_code: MyString
+
+two:
+  subject_name: MyString
+  subject_code: MyString

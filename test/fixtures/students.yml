@@ -1,4 +1,17 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# == Schema Information
+#
+# Table name: students
+#
+#  id             :bigint           not null, primary key
+#  DOB            :date
+#  address        :text
+#  admission_date :date
+#  firstname      :string
+#  nationality    :string
+#  surname        :string
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
+#
 
 one:
   firstname: MyString

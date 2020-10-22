@@ -12,18 +12,23 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :level %>
-    <%= form.text_field :level %>
+    <%= form.label :class_name %>
+    <%= form.text_field :class_name %>
   </div>
 
   <div class="field">
-    <%= form.label :type %>
-    <%= form.text_field :type %>
+    <%= form.label :class_type %>
+    <%= form.text_field :class_type %>
   </div>
 
   <div class="field">
-    <%= form.label :letter %>
-    <%= form.text_field :letter %>
+    <%= form.label :date_from %>
+    <%= form.date_select :date_from %>
+  </div>
+
+  <div class="field">
+    <%= form.label :date_to %>
+    <%= form.text_field :date_to %>
   </div>
 
   <div class="actions">

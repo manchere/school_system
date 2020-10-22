@@ -1,0 +1,18 @@
+# == Schema Information
+#
+# Table name: classroom_students
+#
+#  id         :bigint           not null, primary key
+#  date_from  :date
+#  date_to    :date
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
+one:
+  date_from: 2020-10-22
+  date_to: 2020-10-22
+
+two:
+  date_from: 2020-10-22
+  date_to: 2020-10-22

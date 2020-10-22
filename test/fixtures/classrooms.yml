@@ -1,11 +1,22 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# == Schema Information
+#
+# Table name: classrooms
+#
+#  id         :bigint           not null, primary key
+#  class_name :string
+#  class_type :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
 
 one:
-  level: MyString
-  type: 
-  letter: MyString
+  class_name: MyString
+  class_type: MyString
+  date_from: 2020-10-22
+  date_to: MyString
 
 two:
-  level: MyString
-  type: 
-  letter: MyString
+  class_name: MyString
+  class_type: MyString
+  date_from: 2020-10-22
+  date_to: MyString

@@ -1,11 +1,10 @@
 <div>
-    <div>
-        <% articles('Google').items.each do |item| %>
-            <div>
-                <p><%= item.title %></p>
-                <p><%= raw(item.description) %></p>
-                <p><%= item.pubDate %></p>
-            </div>
-        <% end %>
-    </div>
+  <div>
+    <% @users.each do |user| %>
+      <div>
+        <p><%= user.username %></p>
+        <p><%= user.password %></p>
+      </div>
+    <% end %>
+  </div>
 </div>

@@ -14,9 +14,10 @@ class ClassroomsTest < ApplicationSystemTestCase
     visit classrooms_url
     click_on "New Classroom"
 
-    fill_in "Letter", with: @classroom.letter
-    fill_in "Level", with: @classroom.level
-    fill_in "Type", with: @classroom.type
+    fill_in "Class name", with: @classroom.class_name
+    fill_in "Class type", with: @classroom.class_type
+    fill_in "Date from", with: @classroom.date_from
+    fill_in "Date to", with: @classroom.date_to
     click_on "Create Classroom"
 
     assert_text "Classroom was successfully created"
@@ -27,9 +28,10 @@ class ClassroomsTest < ApplicationSystemTestCase
     visit classrooms_url
     click_on "Edit", match: :first
 
-    fill_in "Letter", with: @classroom.letter
-    fill_in "Level", with: @classroom.level
-    fill_in "Type", with: @classroom.type
+    fill_in "Class name", with: @classroom.class_name
+    fill_in "Class type", with: @classroom.class_type
+    fill_in "Date from", with: @classroom.date_from
+    fill_in "Date to", with: @classroom.date_to
     click_on "Update Classroom"
 
     assert_text "Classroom was successfully updated"

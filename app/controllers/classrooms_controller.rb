@@ -69,6 +69,6 @@ class ClassroomsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def classroom_params
-      params.require(:classroom).permit(:level, :type, :letter)
+      params.require(:classroom).permit(:class_name, :class_type, :date_from, :date_to)
     end
 end

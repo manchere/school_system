@@ -17,7 +17,7 @@ class ClassroomsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create classroom" do
     assert_difference('Classroom.count') do
-      post classrooms_url, params: { classroom: { letter: @classroom.letter, level: @classroom.level, type: @classroom.type } }
+      post classrooms_url, params: { classroom: { class_name: @classroom.class_name, class_type: @classroom.class_type, date_from: @classroom.date_from, date_to: @classroom.date_to } }
     end
 
     assert_redirected_to classroom_url(Classroom.last)
@@ -34,7 +34,7 @@ class ClassroomsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update classroom" do
-    patch classroom_url(@classroom), params: { classroom: { letter: @classroom.letter, level: @classroom.level, type: @classroom.type } }
+    patch classroom_url(@classroom), params: { classroom: { class_name: @classroom.class_name, class_type: @classroom.class_type, date_from: @classroom.date_from, date_to: @classroom.date_to } }
     assert_redirected_to classroom_url(@classroom)
   end
 

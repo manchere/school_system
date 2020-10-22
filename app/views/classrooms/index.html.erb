@@ -5,9 +5,10 @@
 <table>
   <thead>
     <tr>
-      <th>Level</th>
-      <th>Type</th>
-      <th>Letter</th>
+      <th>Class name</th>
+      <th>Class type</th>
+      <th>Date from</th>
+      <th>Date to</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -15,9 +16,10 @@
   <tbody>
     <% @classrooms.each do |classroom| %>
       <tr>
-        <td><%= classroom.level %></td>
-        <td><%= classroom.type %></td>
-        <td><%= classroom.letter %></td>
+        <td><%= classroom.class_name %></td>
+        <td><%= classroom.class_type %></td>
+        <td><%= classroom.date_from %></td>
+        <td><%= classroom.date_to %></td>
         <td><%= link_to 'Show', classroom %></td>
         <td><%= link_to 'Edit', edit_classroom_path(classroom) %></td>
         <td><%= link_to 'Destroy', classroom, method: :delete, data: { confirm: 'Are you sure?' } %></td>

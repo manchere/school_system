@@ -1,18 +1,23 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Level:</strong>
-  <%= @classroom.level %>
+  <strong>Class name:</strong>
+  <%= @classroom.class_name %>
 </p>
 
 <p>
-  <strong>Type:</strong>
-  <%= @classroom.type %>
+  <strong>Class type:</strong>
+  <%= @classroom.class_type %>
 </p>
 
 <p>
-  <strong>Letter:</strong>
-  <%= @classroom.letter %>
+  <strong>Date from:</strong>
+  <%= @classroom.date_from %>
+</p>
+
+<p>
+  <strong>Date to:</strong>
+  <%= @classroom.date_to %>
 </p>
 
 <%= link_to 'Edit', edit_classroom_path(@classroom) %> |

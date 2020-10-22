@@ -1,0 +1,33 @@
+# == Schema Information
+#
+# Table name: teachers
+#
+#  id                 :bigint           not null, primary key
+#  DOB                :date
+#  contact            :string
+#  date_of_employment :date
+#  email_address      :string
+#  firstname          :string
+#  middle_name        :string
+#  surname            :string
+#  created_at         :datetime         not null
+#  updated_at         :datetime         not null
+#
+
+one:
+  firstname: MyString
+  middle_name: MyString
+  surname: MyString
+  DOB: 2020-10-22
+  date_of_employment: 2020-10-22
+  contact: MyString
+  email_address: MyString
+
+two:
+  firstname: MyString
+  middle_name: MyString
+  surname: MyString
+  DOB: 2020-10-22
+  date_of_employment: 2020-10-22
+  contact: MyString
+  email_address: MyString

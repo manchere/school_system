@@ -2,7 +2,7 @@
 #
 # Table name: students
 #
-#  id             :bigint           not null, primary key
+#  id             :uuid             not null, primary key
 #  DOB            :date
 #  address        :text
 #  admission_date :date
@@ -11,6 +11,11 @@
 #  surname        :string
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
+#  classroom_id   :uuid             not null
+#
+# Indexes
+#
+#  index_students_on_classroom_id  (classroom_id) UNIQUE
 #
 class Student < ApplicationRecord
   belongs_to :classroom
@@ -20,5 +25,4 @@ class Student < ApplicationRecord
   validates :nationality, presence: true
   validates :DOB, presence: true
   validates :admission_date, presence: true
-
 end

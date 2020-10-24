@@ -2,7 +2,7 @@
 #
 # Table name: teachers
 #
-#  id                 :bigint           not null, primary key
+#  id                 :uuid             not null, primary key
 #  DOB                :date
 #  contact            :string
 #  date_of_employment :date
@@ -12,6 +12,11 @@
 #  surname            :string
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
+#  classroom_id       :uuid             not null
+#
+# Indexes
+#
+#  index_teachers_on_classroom_id  (classroom_id) UNIQUE
 #
 require 'test_helper'
 

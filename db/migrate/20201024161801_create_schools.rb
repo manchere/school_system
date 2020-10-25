@@ -3,6 +3,8 @@ class CreateSchools < ActiveRecord::Migration[6.0]
     create_table :schools, id: :uuid do |t|
       t.string :school_name
       t.string :digital_address
+
+      t.timestamps
     end
   end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_24_161801) do
+ActiveRecord::Schema.define(version: 2020_10_25_095815) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "hstore"
@@ -38,9 +38,21 @@ ActiveRecord::Schema.define(version: 2020_10_24_161801) do
     t.index ["school_id"], name: "index_classrooms_on_school_id", unique: true
   end
 
+  create_table "fees", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "student_id"
+    t.string "fee_title"
+    t.string "fee_description"
+    t.money "amount", scale: 2, default: "0.0", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["student_id"], name: "index_fees_on_student_id", unique: true
+  end
+
   create_table "schools", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "school_name"
     t.string "digital_address"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "students", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -53,6 +65,7 @@ ActiveRecord::Schema.define(version: 2020_10_24_161801) do
     t.string "nationality"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "email_address"
     t.index ["classroom_id"], name: "index_students_on_classroom_id", unique: true
   end
 

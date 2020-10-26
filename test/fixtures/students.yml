@@ -6,6 +6,7 @@
 #  DOB            :date
 #  address        :text
 #  admission_date :date
+#  email_address  :string
 #  firstname      :string
 #  nationality    :string
 #  surname        :string

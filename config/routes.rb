@@ -71,8 +71,8 @@ Rails.application.routes.draw do
   resources :teachers
   resources :schools
   resources :students
-#   root 'home#index'
-  match '/', :to => 'home#index', :via => :get
+   root 'schools#index'
+  # match '/', :to => 'schools#index', via: :get
 #  match '/', to: 'home#index', via: :get
   #short get form
   get 'users/new'
@@ -83,8 +83,8 @@ Rails.application.routes.draw do
   get 'home/login'
   post 'home/login'
   get ':controller(/:action(/:id))'
-  get 'home/contact'
-  get 'home/about'
+  # match '/search', to: 'home#search', as: 'search_page'
+  get '/search' => 'schools#search', as: 'search_page'
   # match ':controller(/:action(/:id))', :via get => :get 
   # root 'home#index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

@@ -61,14 +61,23 @@ class SchoolsController < ApplicationController
     end
   end
 
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_school
-      @school = School.find(params[:id])
+  def search 
+    if params[:search].blank?
+      redirect_to(root_path, alert: 'Empty field!',) and return
+    else
+      @parameter = params[:search].downcase
+      @results = Student.all.where("lower(name) LIKE :search", search: "%#{@parameter}%")
     end
+  end
+
+private
+    # Use callbacks to share common setup or constraints between actions.
+  def set_school
+    @school = School.find(params[:id])
+  end
 
     # Only allow a list of trusted parameters through.
-    def school_params
-      params.require(:school).permit(:school_name, :school_digital_address)
-    end
+  def school_params
+    params.require(:school).permit(:school_name, :school_digital_address)
+  end
 end

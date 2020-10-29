@@ -1,14 +1,19 @@
 <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-  <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="#"><%= @school.school_name %></a>
+  <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="#">School Name</a>
   <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-toggle="collapse" data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <#%= form_tag '', method: :get class: 'form-inline my-2 my-lg-0' do %>
-    <#%= text_field_tag :search, params.[:search], placeholder: 'Search', class: "form-control mr-sm-2" %>
-  <#% end %>
+  
   <span class="input-group-btn">
-      <%= submit_tag 'Search', class: 'btn btn-info' %>
-    </span>
+     <%= form_tag(search_page_path, method: :get, class: 'navbar-form navbar-left') do %>  
+     <div class="input-group">
+        <%= search_field_tag :search, params[:search], placeholder: "Search", class: "form-control" %>  
+    <div class="input-group-btn">  
+      <%= button_tag "Search", :class => 'btn btn-info glyphicon glyphicon-search',:name => nil%>  
+    </div>  
+     </div>
+     <% end %>
+  </span>
   <ul class="navbar-nav px-3">
     <li class="nav-item text-nowrap">
       <%= link_to 'Sign out', '#', class:'nav-link' %>

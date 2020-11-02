@@ -1,0 +1,17 @@
+<div>
+  <h2>Register</h2>
+</div>
+<%= @user.errors.count %>
+<%= form_for @user do |f| %>
+  <%= f.label :firstname, "Firstname" %>
+  <%= f.text_field :firstname %>
+  <%= f.label :surname, "Surname" %>
+  <%= f.text_field :surname %>
+  <%= f.label :username, "Username" %>
+  <%= f.text_field :username %>
+  <%= f.label :password_digest,"Password" %>
+  <%= f.password_field :password_digest, placeholder: :password %>
+  <%= f.label :email %>
+  <%= f.text_field :email, placeholder: :email %>
+  <%= submit_tag "Create" %>
+<% end %>

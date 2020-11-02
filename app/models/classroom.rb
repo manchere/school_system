@@ -15,4 +15,5 @@
 #
 class Classroom < ApplicationRecord
   has_many :students, through: :classroom_students
+  belongs_to :school
 end

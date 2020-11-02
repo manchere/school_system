@@ -15,4 +15,5 @@
 #  index_fees_on_student_id  (student_id) UNIQUE
 #
 class Fee < ApplicationRecord
+	belongs_to :student
 end

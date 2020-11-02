@@ -1,4 +1,4 @@
-# == Schema Information
+     # == Schema Information
 #
 # Table name: subjects
 #
@@ -14,4 +14,5 @@
 #  index_subjects_on_classroom_id  (classroom_id) UNIQUE
 #
 class Subject < ApplicationRecord
+	belongs_to :classroom
 end

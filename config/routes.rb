@@ -66,25 +66,29 @@
 #                  rails_direct_uploads POST   /rails/active_storage/direct_uploads(.:format)                                           active_storage/direct_uploads#create
 
 Rails.application.routes.draw do
-  resources :subjects
-  resources :classrooms
-  resources :teachers
-  resources :schools
+  get 'password/reset'
+  get 'password/forgot'
+  resources :subjects, :classrooms, :teachers, :schools
   resources :students
-   root 'schools#index'
+  resources :users
+  root 'schools#index'
   # match '/', :to => 'schools#index', via: :get
-#  match '/', to: 'home#index', via: :get
+  # match '/', to: 'home#index', via: :get
   #short get form
-  get 'users/new'
-  #simple match route 'the string in the url' :to demo controller and index action
- #match 'users/new', :to => 'users#new', :via => :get
-  get 'users/create'
-  get 'home/index'
-  get 'home/login'
-  post 'home/login'
-  get ':controller(/:action(/:id))'
-  # match '/search', to: 'home#search', as: 'search_page'
+  # get 'users/new'
+  # get 'users/create'
   get '/search' => 'schools#search', as: 'search_page'
+  get '/login' => 'users#login', as: 'login_page'
+  post '/login' => 'users#login'
+
+  get 'users/logout'
+
+  get 'password/forgot'
+  get 'password/reset'
+
+  post 'password/forgot'
+  post 'password/reset'
+
   # match ':controller(/:action(/:id))', :via get => :get 
   # root 'home#index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

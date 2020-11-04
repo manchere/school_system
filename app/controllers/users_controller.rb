@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
-  
+
+  skip_before_action :authorized, only: [:login, :logout, :index]
+
   def index
     @users = User.all
   end
@@ -24,13 +26,21 @@ class UsersController < ApplicationController
   end
  
   def user_params
-    params.require(:user).permit(:username, :firstname, :surname, :username, :password_digest, :email)
+    params.require(:user).permit(:username, :firstname, :surname, :username, :password, :email)
   end
 
   def login
     if params[:username]
         user = User.find_by_username(params[:username])
         @valid = user.authenticate(params[:password])
-    end     
+    end 
+    if @valid
+      session[:user_id] = user.id
+      redirect_to '/users'
+    end    
+  end
+
+  def logout
+    session[:user_id] = nil
   end
 end

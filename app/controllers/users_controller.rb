@@ -31,12 +31,15 @@ class UsersController < ApplicationController
 
   def login
     if params[:username]
-        user = User.find_by_username(params[:username])
-        @valid = user.authenticate(params[:password])
-    end 
-    if @valid
-      session[:user_id] = user.id
-      redirect_to '/users'
+      user = User.find_by_username(params[:username])
+      @valid = user.authenticate(params[:password])
+      if @valid
+        session[:user_id] = user.id
+        redirect_to '/users'
+      else
+        @alert = 'Username or password incrorrect!'
+        redirect_to login_page_path
+      end
     end    
   end
 

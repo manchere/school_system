@@ -78,7 +78,7 @@ Lint/UselessTimes:
   Enabled: true
 
 Naming/VariableName:
-  EnforcedStyle: camelCase
+  EnforcedStyle: snakeCase
 
 Style/FrozenStringLiteralComment:
   Enabled: false

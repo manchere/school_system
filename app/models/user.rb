@@ -21,4 +21,5 @@ class User < ApplicationRecord
 
   validates :password_digest, presence: true
   validates :username , :email, uniqueness: true
+  validates_confirmation_of :password, message: "should match confirmation"
 end

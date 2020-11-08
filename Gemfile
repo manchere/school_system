@@ -63,7 +63,7 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 gem 'rss'
 
-gem 'bcrypt'
+gem 'bcrypt', '~> 3.1', '>= 3.1.16'
 
 gem 'gravtastic'
 

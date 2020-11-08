@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  skip_before_action :authorized, only: [:login, :logout, :index, :new]
+  skip_before_action :authorized, only: [:login, :logout, :index, :new, :create ]
 
   def index
     @users = User.all
@@ -34,9 +34,9 @@ class UsersController < ApplicationController
       @valid = user.authenticate(params[:password])
       if @valid
         session[:user_id] = user.id
-        redirect_to '/users'
+        redirect_to '/schools'
       else
-        @alert = 'Username or password incrorrect!'
+        flash.alert = 'Username or password incrorrect!'
         redirect_to login_page_path
       end
     end    

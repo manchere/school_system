@@ -5,6 +5,7 @@
 #  id              :uuid             not null, primary key
 #  email           :string
 #  firstname       :string
+#  is_admin        :boolean          default(FALSE), not null
 #  password_digest :string
 #  reset           :string
 #  surname         :string
@@ -14,7 +15,8 @@
 #
 # Indexes
 #
-#  index_users_on_email  (email)
+#  index_users_on_email     (email)
+#  index_users_on_is_admin  (is_admin)
 #
 require 'rails_helper'
 

@@ -1,6 +1,5 @@
-<nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+<nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap shadow">
   <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="#">School Name</a>
-  <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="#"><%= @user.username %></a>
   <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-toggle="collapse" data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -8,7 +7,7 @@
   <span class="input-group-btn">
      <%= form_tag(search_page_path, method: :get, class: 'navbar-form navbar-left') do %>  
      <div class="input-group">
-        <%= search_field_tag :search, params[:search], placeholder: "Search", class: "form-control" %>  
+        <%= search_field_tag :search, params[:search], placeholder: "Search", class: "form-control " %>  
     <div class="input-group-btn">  
       <%= button_tag "Search", :class => 'btn btn-info glyphicon glyphicon-search',:name => nil%>  
     </div>  
@@ -18,7 +17,7 @@
   <ul class="navbar-nav px-3">
     <li class="nav-item text-nowrap">
     <% if logged_in? %>
-      <%= link_to 'Sign out', login_page_path, class:'nav-link' %>
+      <%= link_to 'Sign out', , class:'nav-link' %>
     <% else %>
       <%= link_to 'Sign in', login_page_path, class:'nav-link' %>
     <% end %>

@@ -77,6 +77,10 @@ Rails.application.routes.draw do
   #short get form
   # get 'users/new'
   # get 'users/create'
+  namespace :admin do
+    resources :users
+  end
+
   get '/search' => 'schools#search', as: 'search_page'
   get '/login' => 'users#login', as: 'login_page'
   post '/login' => 'users#login'
@@ -89,7 +93,5 @@ Rails.application.routes.draw do
   post 'password/forgot'
   post 'password/reset'
 
-  # match ':controller(/:action(/:id))', :via get => :get 
-  # root 'home#index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

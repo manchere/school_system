@@ -24,4 +24,11 @@ class User < ApplicationRecord
   validates :password_digest, presence: true
   validates :username , :email, uniqueness: true
   validates_confirmation_of :password, message: "should match confirmation"
+  has_one :subscription
+
+  after_create :create_subscription
+
+  def create_subscription
+    Subscription.create(user_id: id) if subscription.nil?
+  end
 end

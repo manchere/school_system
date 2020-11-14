@@ -26,8 +26,21 @@ gem 'jbuilder', '~> 2.7'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
+gem 'rss'
+
+gem 'bcrypt', '~> 3.1', '>= 3.1.16'
+
+gem 'gravtastic'
+
+# rubocop linter/code formatter
+gem 'rubocop', '~> 0.92.0', require: false
+
+#stripe payment method
+gem 'stripe'
 
 gem 'devise'
+
+gem 'dotenv-rails', groups: [:development, :test]
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
@@ -61,11 +74,3 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
-gem 'rss'
-
-gem 'bcrypt', '~> 3.1', '>= 3.1.16'
-
-gem 'gravtastic'
-
-# rubocop linter/code formatter
-gem 'rubocop', '~> 0.92.0', require: false

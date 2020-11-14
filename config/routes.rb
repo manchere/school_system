@@ -85,13 +85,15 @@ Rails.application.routes.draw do
   get '/login' => 'users#login', as: 'login_page'
   post '/login' => 'users#login'
 
-  get 'users/logout'
-
+  get '/logout' => 'users#logout', as: 'logout_page'
+  post "/logout", to: "usersr#logout"
   get 'password/forgot'
   get 'password/reset'
 
   post 'password/forgot'
   post 'password/reset'
+
+  get '/users/info', to: 'users#info'
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

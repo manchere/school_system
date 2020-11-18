@@ -7,9 +7,9 @@
   <span class="input-group-btn">
      <%= form_tag(search_page_path, method: :get, class: 'navbar-form navbar-left') do %>  
      <div class="input-group">
-        <%= search_field_tag :search, params[:search], placeholder: "Search", class: "form-control " %>  
+        <%= search_field_tag :search, params[:search], placeholder: 'Search', class: 'form-control', id: 'search_field' %>  
     <div class="input-group-btn">  
-      <%= button_tag "Search", :class => 'btn btn-info glyphicon glyphicon-search',:name => nil%>  
+      <%= button_tag "Search", class: 'btn btn-info glyphicon glyphicon-search bg-dark' %>  
     </div>  
      </div>
      <% end %>
@@ -20,40 +20,22 @@
     <% if logged_in? %>
       <%= link_to 'Sign out', logout_page_path, method: :logout, class:'nav-link' %>
     <% else %>
-      <%= link_to 'Sign in', login_page_path, class:'nav-link' %>
+      <%= link_to 'Sign in', login_page_path , class:'nav-link' %>
     <% end %>
     </li>
   </ul>
+
+  <span>
+    <ul class="navbar-nav px-3">
+      <li class="nav-item text-nowrap">
+        <%= link_to 'Register', new_user_path, class:'' %></li>
+      </ul>
+  </span>
+
   <span class="input-group-btn text-success">
     <%= !current_user.nil? ? current_user.username : '' %>
   </span>
+
 </nav>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-      </li>
-    </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
-  </div>
+  

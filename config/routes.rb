@@ -87,6 +87,7 @@ Rails.application.routes.draw do
 
   get '/logout' => 'users#logout', as: 'logout_page'
   post "/logout", to: "users#logout"
+  
   get 'password/forgot'
   get 'password/reset'
 

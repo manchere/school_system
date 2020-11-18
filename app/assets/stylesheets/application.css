@@ -16,3 +16,11 @@
 body {
   margin: auto;
 }
+
+#search_field {
+  transition: width 0.4s ease-in-out;
+}
+
+#search_field:focus {
+  width: 100%;
+}

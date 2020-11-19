@@ -1,26 +1,33 @@
 <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap shadow">
-<%= link_to '@school.name', schools_path(@school) , class:'navbar-brand col-md-3 col-lg-2 mr-0 px-3' %>
+
+ <div class="navbar-brand">
+    <%= image_tag 'logo_white', width: 30, height: 30 %>
+  </div>
+    <%= link_to 'GH School Index', 'path', class: 'navbar-brand' %>
+    <%= link_to  'Schools', 'path', class: 'nav-spec nav-link' %>
+    <%= link_to  'Students', 'path', class: 'nav-spec nav-link' %>
+    <%= link_to  'Rank', 'path', class: 'nav-spec nav-link' %>
   <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-toggle="collapse" data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   
-  <span class="input-group-btn">
-     <%= form_tag(search_page_path, method: :get, class: 'navbar-form navbar-left') do %>  
-     <div class="input-group">
+  <span class="input-group">
+     <%= form_tag(search_page_path, method: :get, class: 'form-inline') do %>  
+      <div class="input-group">
         <%= search_field_tag :search, params[:search], placeholder: 'Search', class: 'form-control', id: 'search_field' %>  
-    <div class="input-group-btn">  
-      <%= button_tag "Search", class: 'btn btn-info glyphicon glyphicon-search bg-dark' %>  
-    </div>  
-     </div>
+        <div class="input-group-append">  
+          <%= button_tag "Search", class: 'btn btn btnSecOption btn-block', id: 'search_btn' %>
+        </div>  
+      </div>
      <% end %>
   </span>
 
   <ul class="navbar-nav px-3">
     <li class="nav-item text-nowrap">
     <% if logged_in? %>
-      <%= link_to 'Sign out', logout_page_path, method: :logout, class:'nav-link' %>
+      <%= link_to 'Sign out', logout_page_path, method: :logout, class:'nav-link nav-spec' %>
     <% else %>
-      <%= link_to 'Sign in', login_page_path , class:'nav-link' %>
+      <%= link_to 'Sign in', login_page_path , class:'nav-spec nav-link' %>
     <% end %>
     </li>
   </ul>
@@ -28,14 +35,14 @@
   <span>
     <ul class="navbar-nav px-3">
       <li class="nav-item text-nowrap">
-        <%= link_to 'Register', new_user_path, class:'' %></li>
-      </ul>
+        <%= link_to 'Register', new_user_path, class:'nav-spec nav-link' %>
+      </li>
+    </ul>
   </span>
 
   <span class="input-group-btn text-success">
     <%= !current_user.nil? ? current_user.username : '' %>
   </span>
 
+  <%= image_tag '' %>
 </nav>
-
-  

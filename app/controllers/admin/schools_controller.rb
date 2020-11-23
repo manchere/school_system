@@ -1,4 +1,4 @@
-class SchoolsController < AppliationController
+class Admin::SchoolsController < AdminController
   def create
     @school = School.new(school_params)
   end

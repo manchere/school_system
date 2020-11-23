@@ -3,9 +3,9 @@
 # Table name: users
 #
 #  id              :uuid             not null, primary key
+#  country         :string
 #  email           :string
 #  firstname       :string
-#  is_admin        :boolean          default(FALSE), not null
 #  password_digest :string
 #  reset           :string
 #  surname         :string
@@ -15,8 +15,7 @@
 #
 # Indexes
 #
-#  index_users_on_email     (email)
-#  index_users_on_is_admin  (is_admin)
+#  index_users_on_email  (email)
 #
 require 'rails_helper'
 

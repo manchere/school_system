@@ -3,9 +3,9 @@
 # Table name: users
 #
 #  id              :uuid             not null, primary key
+#  country         :string
 #  email           :string
 #  firstname       :string
-#  is_admin        :boolean          default(FALSE), not null
 #  password_digest :string
 #  reset           :string
 #  surname         :string
@@ -15,20 +15,33 @@
 #
 # Indexes
 #
-#  index_users_on_email     (email)
-#  index_users_on_is_admin  (is_admin)
+#  index_users_on_email  (email)
 #
 class User < ApplicationRecord
+
+  #Attributes
+  EXCLUDED_USERNAMES = %w(www ftp mail root admin account beta staging stage cdn assets images files )
+
+  #Relationships
   has_secure_password
-
-  validates :password_digest, presence: true
-  validates :username , :email, uniqueness: true
-  validates_confirmation_of :password, message: "should match confirmation"
   has_one :subscription
+  has_one :admin, dependent: :destroy
 
+  #Validations
+  validates :password_digest, presence: true
+  validates :username, :email, uniqueness: { case_sensitive: false } 
+  validates :username,
+    format: { with: /\A\w\Z+\_+\Z/, message: :username },
+    length: { in: 3..32 },
+    exclusion: { in: EXCLUDED_USERNAMES, message: :duplicate }
+  validates_confirmation_of :password, message: "should match confirmation"
+  
+  #Callbacks
   after_create :create_subscription
 
+  #methods
   def create_subscription
-    Subscription.create(user_id: id) if subscription.nil?
+  Subscription.create(user_id: id) if subscription.nil?
   end
 end
+User

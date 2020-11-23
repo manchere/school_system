@@ -19,8 +19,25 @@ body {
 
 #search_field {
   transition: width 0.4s ease-in-out;
+  font-size: 14px;
 }
 
 #search_field:focus {
   width: 100%;
+}
+
+#search_btn {
+  font-size: 14px;
+}
+
+.spacing {
+  padding: 4px;
+}
+
+.nav-spec {
+  color: white;
+}
+
+.nav-spec:visited {
+  color: white;
 }

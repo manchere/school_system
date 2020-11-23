@@ -19,4 +19,3 @@ class ApplicationController < ActionController::Base
 		redirect_to login_page_path unless logged_in?
 	end
 end
- 

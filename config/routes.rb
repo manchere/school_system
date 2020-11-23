@@ -78,7 +78,7 @@ Rails.application.routes.draw do
   # get 'users/new'
   # get 'users/create'
   namespace :admin do
-    resources :users
+    resources :schools
   end
 
   get '/search' => 'schools#search', as: 'search_page'
@@ -97,4 +97,5 @@ Rails.application.routes.draw do
   get '/users/info', to: 'users#info'
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  
 end

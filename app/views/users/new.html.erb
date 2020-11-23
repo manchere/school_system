@@ -1,17 +1,27 @@
 <div>
   <h2>Register</h2>
 </div>
-<%= @user.errors.count %>
-<%= form_for @user do |f| %>
-  <%= f.label :firstname, "Firstname" %>
-  <%= f.text_field :firstname %>
-  <%= f.label :surname, "Surname" %>
-  <%= f.text_field :surname %>
-  <%= f.label :username, "Username" %>
-  <%= f.text_field :username %>
-  <%= f.label :email %>
-  <%= f.text_field :email, placeholder: :email %>
-  <%= f.label :password,"Password" %>
-  <%= f.password_field :password, placeholder: :password %>
-  <%= submit_tag "Create" %>
-<% end %>
+<div class="container">
+  <div class ="row">
+    <div class="col-sm bg-dark">
+    </div>
+    <div class="col-sm">
+     <%= @user.errors.count %>
+      <%= form_for @user, html: {class: 'form-signin' } do |f| %>
+        <%= f.label :firstname, "Firstname" %>
+        <%= f.text_field :firstname %>
+        <%= f.label :surname, "Surname" %>
+        <%= f.text_field :surname %>
+        <%= f.label :username, "Username" %>
+        <%= f.text_field :username %>
+        <%= f.label :email %>
+        <%= f.text_field :email, placeholder: :email %>
+        <%= f.label :password,"Password" %>
+        <%= f.password_field :password, placeholder: :password %>
+        <%= submit_tag "Create" %>
+    <% end %>
+      One of three columns
+    </div>
+  </div>
+</div>
+

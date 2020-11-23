@@ -10,13 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_13_164019) do
+ActiveRecord::Schema.define(version: 2020_11_21_100713) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "hstore"
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
   enable_extension "uuid-ossp"
+
+  create_table "admins", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "user_id"
+    t.string "cell_phone"
+    t.index ["user_id"], name: "index_admins_on_user_id"
+  end
 
   create_table "classroom_students", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.uuid "classroom_id", null: false
@@ -66,6 +72,7 @@ ActiveRecord::Schema.define(version: 2020_11_13_164019) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "email_address"
+    t.string "gender"
     t.index ["classroom_id"], name: "index_students_on_classroom_id", unique: true
   end
 
@@ -110,9 +117,8 @@ ActiveRecord::Schema.define(version: 2020_11_13_164019) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "email"
     t.string "reset"
-    t.boolean "is_admin", default: false, null: false
+    t.string "country"
     t.index ["email"], name: "index_users_on_email"
-    t.index ["is_admin"], name: "index_users_on_is_admin"
   end
 
 end

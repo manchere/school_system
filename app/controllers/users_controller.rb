@@ -45,4 +45,10 @@ class UsersController < ApplicationController
     session[:user_id] = nil
     redirect_to login_page_path
   end
+
+  def new_admin
+    @user = User.find(params[:id])
+    @user.admin = 
+    @user = user.admin
+  end
 end

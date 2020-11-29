@@ -17,29 +17,27 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      p @user.errors.count
-      redirect_to @user, alert: "User created succesfully"
+      redirect_to @user, notice: "User created succesfully"
     else
       redirect_to new_user_path, alert: "Error creating user"
     end
   end
- 
+  
   def user_params
-    params.require(:user).permit(:username, :firstname, :surname, :username, :password, :email)
+    params.require(:user).permit(:username, :firstname, :surname, :password, :email, :country)
   end
 
   def login
-    if params[:username]
-      user = User.find_by_username(params[:username])
-      @valid = user.authenticate(params[:password])
-      if @valid
+    if params[:email]
+      user = User.find_by_email(params[:email])
+      if user && user.authenticate(params[:password])
         session[:user_id] = user.id
         redirect_to '/schools'
       else
-        flash.alert = 'Username or password incrorrect!'
+        flash.alert = 'Login or password incrorrect.'
         redirect_to login_page_path
-      end
-    end    
+      end  
+    end
   end
 
   def logout

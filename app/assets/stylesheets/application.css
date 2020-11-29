@@ -13,3 +13,42 @@
  *= require_tree .
  *= require_self
  */
+
+/* fa-font-path: "@fortawesome/fontawesome-free/webfonts"; */
+
+@import "@fortawesome/fontawesome-free";
+
+body {
+  margin: auto;
+}
+
+#search_field {
+  transition: width 0.4s ease-in-out;
+  font-size: 14px;
+}
+
+#search_field:focus {
+  width: 100%;
+}
+
+#search_btn {
+  font-size: 14px;
+}
+
+.spacing {
+  padding: 4px;
+}
+
+.nav-spec {
+  color: white;
+}
+
+.nav-spec:visited {
+  color: white;
+}
+
+a:hover {
+  color: inherit;
+  background-color: transparent;
+  
+}

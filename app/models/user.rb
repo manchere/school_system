@@ -3,6 +3,7 @@
 # Table name: users
 #
 #  id              :uuid             not null, primary key
+#  country         :string
 #  email           :string
 #  firstname       :string
 #  password_digest :string
@@ -17,8 +18,16 @@
 #  index_users_on_email  (email)
 #
 class User < ApplicationRecord
-  has_secure_password
 
+  #Attributes
+  EXCLUDED_USERNAMES = %w(www ftp mail root admin account beta staging stage cdn assets images files )
+
+  #Relationships
+  has_secure_password
+  has_one :subscription
+  has_one :admin, dependent: :destroy
+
+  #Validations
   validates :password_digest, presence: true
   validates :username, :email, uniqueness: { case_sensitive: false } 
   validates :username,
@@ -35,4 +44,3 @@ class User < ApplicationRecord
   Subscription.create(user_id: id) if subscription.nil?
   end
 end
-

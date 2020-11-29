@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
 
-  skip_before_action :authorized, only: [:login, :logout, :index, :new, :create ]
-
+  skip_before_action :authorized, only: [:login, :logout, :index, :new, :create]
   def index
     @users = User.all
   end
@@ -43,5 +42,11 @@ class UsersController < ApplicationController
   def logout
     session[:user_id] = nil
     redirect_to login_page_path
+  end
+
+  def new_admin
+    @user = User.find(params[:id])
+    @user.admin = 
+    @user = user.admin
   end
 end

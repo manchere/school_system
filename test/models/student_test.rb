@@ -8,6 +8,7 @@
 #  admission_date :date
 #  email_address  :string
 #  firstname      :string
+#  gender         :string
 #  nationality    :string
 #  surname        :string
 #  created_at     :datetime         not null

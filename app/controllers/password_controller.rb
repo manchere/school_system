@@ -1,5 +1,7 @@
 class PasswordController < ApplicationController
 
+  skip_before_action :authorized, only: [:forgot]
+
   def forgot
     if params[:email]
       user = User.find_by_email(params[:email]) or not_found()

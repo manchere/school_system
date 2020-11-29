@@ -3,6 +3,7 @@
 # Table name: users
 #
 #  id              :uuid             not null, primary key
+#  country         :string
 #  email           :string
 #  firstname       :string
 #  password_digest :string

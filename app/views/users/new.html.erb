@@ -1,3 +1,16 @@
-<div>
-  <%= render 'form', user: @user %>
+<div class="container">
+  <div class ="row mt-5">
+    <div class="col-sm">
+      <%= form_with model: @user, class: 'form-signin' do |f| %>
+        <div>
+          <%= render 'form', f: f %>
+          <%= f.submit 'Create account', class: 'btn btn-sm btn-dark btn-block' %>
+          <hr>
+          <%= link_to 'Register with facebook', new_user_path, class: 'btnSecOption btn btn-sm btn-block btnSecHover' %>
+          <%= link_to 'Register with google', new_user_path, class: 'btnSG btnSGHover btn btn-sm btn-block' %>
+          <i class="btn-facebook"></i>
+        </div>
+      <% end %>
+    </div>
+  </div>
 </div>

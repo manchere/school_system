@@ -1,45 +1,35 @@
-<div class="container">
-  <div class ="row">
-    <div class="col-sm">
-      <%= form_with model: user, class: 'form-signin' do |f| %>
-        <h2>Create account</h2>
-        <hr>
-        <% if user.errors.any? %>
-          <div id="error_explanation">
-            <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
-            <ul>
-              <% user.errors.full_messages.each do |message| %>
-                <li><%= message %></li>
-              <% end %>
-            </ul>
-          </div>
-        <% end %>
-        <div class="mb-2">
-          <span class="text-danger text-center mb-4" ><%=  %></span>
-        </div>
-        <div class="mb-3">
-          <%= f.text_field :username, placeholder: :username, class: 'form-control' %>
-        </div>
-        <div class="mb-3">
-          <%= f.text_field :firstname, placeholder: :firstname, class: 'form-control' %>
-        </div>
-        <div class="mb-3">
-          <%= f.text_field :surname, placeholder: :surname, class: 'form-control' %>
-        </div>
-        <div class="mb-3">
-          <%= f.text_field :country, placeholder: :country, class: 'form-control'  %>
-        </div>
-        <div class="mb-3">
-          <%= f.email_field :email, placeholder: :email, class: 'form-control' %>
-        </div>
-        <div class="mb-3">
-          <%= f.password_field :password, placeholder: :password, class: 'form-control'  %>
-        </div>
-        <%= f.submit 'Create Account', class: 'btn btn-sm btn-dark btn-block' %>
-        <hr>
-        <%= link_to 'Register with facebook', new_user_path, class: 'btnSecOption btn btn-sm btn-block btnSecHover' %>
-        <i class="btn-facebook">
-        <% end %>
-      </div>
-    </div>
+<h4>
+  <span><%= image_tag 'logo_black.png', height: 40, width: 40 %>&nbsp Create account</span>
+</h4>
+<hr>
+<% if @user.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@user.errors.count, "error") %>  user could not be saved:</h2>
+    <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
   </div>
+<% end %>
+<div class="mb-2">
+  <span class="text-danger text-center mb-4" ><%=  %></span>
+</div>
+<div class="mb-3">
+  <%= f.text_field :username, placeholder: :username, class: 'form-control' %>
+</div>
+<div class="mb-3">
+  <%= f.text_field :firstname, placeholder: :firstname, class: 'form-control' %>
+</div>
+<div class="mb-3">
+  <%= f.text_field :surname, placeholder: :surname, class: 'form-control' %>
+</div>
+<div class="mb-3">
+  <%= f.country_select( :country, { priority_countries: ["GH", "NG"], selected: "GH" }, class: 'form-control' ) %>
+</div>
+<div class="mb-3">
+  <%= f.email_field :email, placeholder: :email, class: 'form-control' %>
+</div>
+<div class="mb-3">
+  <%= f.password_field :password, placeholder: :password, class: 'form-control'  %>
+</div>

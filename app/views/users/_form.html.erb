@@ -2,19 +2,6 @@
   <span><%= image_tag 'logo_black.png', height: 40, width: 40 %>&nbsp Create account</span>
 </h4>
 <hr>
-<% if @user.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(@user.errors.count, "error") %>  user could not be saved:</h2>
-    <ul>
-      <% @user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-    </ul>
-  </div>
-<% end %>
-<div class="mb-2">
-  <span class="text-danger text-center mb-4" ><%=  %></span>
-</div>
 <div class="mb-3">
   <%= f.text_field :username, placeholder: :username, class: 'form-control' %>
 </div>

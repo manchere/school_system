@@ -1,5 +1,5 @@
 class SchoolsController < ApplicationController
-  skip_before_action :authorized, only: [:show, :edit, :update, :destroy, :new]
+  skip_before_action :authorized, only: [:show, :edit, :update, :destroy, :new, :search]
 
 
   # GET /schools
@@ -18,7 +18,7 @@ class SchoolsController < ApplicationController
 
   def search 
     if params[:search].blank?
-      redirect_to(root_path, alert: 'Empty field!',) and return
+      redirect_to(root_path, alert: 'Empty field!') and return
     else
       @parameter = params[:search].downcase
       @results = Student.all.where("lower(name) LIKE :search", search: "%#{@parameter}%")

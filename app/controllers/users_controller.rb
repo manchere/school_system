@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  skip_before_action :authorized, only: [:login, :logout, :index, :new, :create]
+  skip_before_action :authorized, only: [:login, :logout, :index, :new, :create, :show]
   def index
     @users = User.all
   end
@@ -18,7 +18,7 @@ class UsersController < ApplicationController
     if @user.save
       redirect_to @user, notice: "User created succesfully"
     else
-      redirect_to new_user_path, alert: "Error creating user"
+      render 'new'
     end
   end
   
@@ -33,8 +33,7 @@ class UsersController < ApplicationController
         session[:user_id] = user.id
         redirect_to '/schools'
       else
-        flash.alert = 'Login or password incrorrect.'
-        redirect_to login_page_path
+      @message = 'Login or password incrorrect.'
       end  
     end
   end

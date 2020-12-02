@@ -14,12 +14,11 @@
       <div class="input-group">
         <%= search_field_tag :search, params[:search], placeholder: 'Search', class: 'form-control', id: 'search_field' %>
         <div class="input-group-append">
-          <%= button_tag "Search", class: 'btn btn btnSecOption btn-block', id: 'search_btn' %>
+          <%= button_tag 'Search', class: 'btn btn btnSecOption btn-block', id: 'search_btn', name: nil %>
         </div>
       </div>
     <% end %>
   </span>
-
   <ul class="navbar-nav px-3">
     <li class="nav-item text-nowrap">
       <% if logged_in? %>
@@ -36,19 +35,6 @@
       </li>
     </ul>
   </span>
-  <ul class="navbar-nav px-3">
-    <li class="nav-item dropdown">
-      <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
-        <%= image_tag('', class: 'rounded-circle', width: 30, height: 30) %>
-      </a>
-      <div class="dropdown-menu dropdown-menu-right">
-        <a href="#" class="dropdown-item">Reports</a>
-        <a href="#" class="dropdown-item">Settings</a>
-        <div class="dropdown-divider"></div>
-        <a href="#"class="dropdown-item">Logout</a>
-      </div>
-    </li>
-  </ul>
   <span class="input-group-btn text-success">
     <%= !current_user.nil? ? current_user.username : '' %>
   </span>

@@ -1,7 +1,7 @@
 class CreateStudents < ActiveRecord::Migration[6.0]
   def change
     create_table :students, id: :uuid do |t|
-      t.uuid :classroom_id, null: false
+      t.uuid :course_id, null: false
       t.string :firstname
       t.string :surname
       t.date :DOB
@@ -11,6 +11,6 @@ class CreateStudents < ActiveRecord::Migration[6.0]
 
       t.timestamps
     end
-      add_index :students, :classroom_id, unique: true
+      add_index :students, :course_id, unique: true
   end
 end

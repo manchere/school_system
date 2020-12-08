@@ -13,15 +13,15 @@
 #  surname        :string
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
-#  classroom_id   :uuid             not null
+#  course_id      :uuid             not null
 #
 # Indexes
 #
-#  index_students_on_classroom_id  (classroom_id) UNIQUE
+#  index_students_on_course_id  (course_id) UNIQUE
 #
 class Student < ApplicationRecord
   #Relationships
-  has_many :classrooms, through: :classroom_students
+  has_many :courses, through: :classroom_students
   has_many :fees
 
   #Validations

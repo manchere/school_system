@@ -28,12 +28,13 @@ class User < ApplicationRecord
   has_one :admin, dependent: :destroy
 
   #Validations
-  validates :password_digest, presence: true
-  validates :username, :email, uniqueness: { case_sensitive: false } 
-  validates :username,
-    format: { with: /\A\w\Z+\_+\Z/, message: :username },
-    length: { in: 3..32 },
-    exclusion: { in: EXCLUDED_USERNAMES, message: :duplicate }
+   validates :password_digest, presence: true
+   validates :username, :email, uniqueness: { case_sensitive: false }
+   validates :username, :email, presence: true
+  #  validates :username,
+    #  format: { with: /\A[a-zA-Z0-9\-\_]+\z/, message: :username },
+    #  length: { in: 3..32 }
+    # exclusion: { in: EXCLUDED_USERNAMES, message: :duplicate }
   # validates_confirmation_of :password, message: "should match confirmation"
   
   #Callbacks

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_21_100713) do
+ActiveRecord::Schema.define(version: 2020_12_08_115058) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "hstore"
@@ -24,24 +24,25 @@ ActiveRecord::Schema.define(version: 2020_11_21_100713) do
     t.index ["user_id"], name: "index_admins_on_user_id"
   end
 
-  create_table "classroom_students", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.uuid "classroom_id", null: false
+  create_table "course_students", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "course_id", null: false
     t.uuid "student_id", null: false
     t.date "date_from"
     t.date "date_to"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["classroom_id"], name: "index_classroom_students_on_classroom_id", unique: true
-    t.index ["student_id"], name: "index_classroom_students_on_student_id", unique: true
+    t.index ["course_id"], name: "index_course_students_on_course_id", unique: true
+    t.index ["student_id"], name: "index_course_students_on_student_id", unique: true
   end
 
-  create_table "classrooms", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+  create_table "courses", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.uuid "school_id", null: false
-    t.string "class_name"
-    t.string "class_type"
+    t.string "course_name"
+    t.string "course_type"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["school_id"], name: "index_classrooms_on_school_id", unique: true
+    t.text "description"
+    t.index ["school_id"], name: "index_courses_on_school_id", unique: true
   end
 
   create_table "fees", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -62,7 +63,7 @@ ActiveRecord::Schema.define(version: 2020_11_21_100713) do
   end
 
   create_table "students", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.uuid "classroom_id", null: false
+    t.uuid "course_id", null: false
     t.string "firstname"
     t.string "surname"
     t.date "DOB"
@@ -73,16 +74,16 @@ ActiveRecord::Schema.define(version: 2020_11_21_100713) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "email_address"
     t.string "gender"
-    t.index ["classroom_id"], name: "index_students_on_classroom_id", unique: true
+    t.index ["course_id"], name: "index_students_on_course_id", unique: true
   end
 
   create_table "subjects", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.uuid "classroom_id", null: false
+    t.uuid "course_id", null: false
     t.string "subject_name"
     t.string "subject_code"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["classroom_id"], name: "index_subjects_on_classroom_id", unique: true
+    t.index ["course_id"], name: "index_subjects_on_course_id", unique: true
   end
 
   create_table "subscriptions", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -95,7 +96,7 @@ ActiveRecord::Schema.define(version: 2020_11_21_100713) do
   end
 
   create_table "teachers", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.uuid "classroom_id", null: false
+    t.uuid "course_id", null: false
     t.string "firstname"
     t.string "middle_name"
     t.string "surname"
@@ -105,7 +106,7 @@ ActiveRecord::Schema.define(version: 2020_11_21_100713) do
     t.string "email_address"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["classroom_id"], name: "index_teachers_on_classroom_id", unique: true
+    t.index ["course_id"], name: "index_teachers_on_course_id", unique: true
   end
 
   create_table "users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|

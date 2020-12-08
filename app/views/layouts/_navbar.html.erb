@@ -6,6 +6,7 @@
   <%= link_to  'Schools', 'path', class: 'nav-spec nav-link' %>
   <%= link_to  'Students', 'path', class: 'nav-spec nav-link' %>
   <%= link_to  'Rank', 'path', class: 'nav-spec nav-link' %>
+  <%= link_to  'Juxtapose', 'path', class: 'nav-spec nav-link' %>
   <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-toggle="collapse" data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -19,6 +20,15 @@
       </div>
     <% end %>
   </span>
+  <div class="dropdown">
+    <button class="btn btn-primary dropdown-toggle" id="search_field" type="button" data-toggle="dropdown">Dropdown Example
+      <span class="caret"></span></button>
+    <ul class="dropdown-menu">
+      <li><a href="#">HTML</a></li>
+      <li><a href="#">CSS</a></li>
+      <li><a href="#">JavaScript</a></li>
+    </ul>
+  </div>
   <ul class="navbar-nav px-3">
     <li class="nav-item text-nowrap">
       <% if logged_in? %>

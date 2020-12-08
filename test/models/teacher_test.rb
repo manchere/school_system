@@ -12,11 +12,11 @@
 #  surname            :string
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
-#  classroom_id       :uuid             not null
+#  course_id          :uuid             not null
 #
 # Indexes
 #
-#  index_teachers_on_classroom_id  (classroom_id) UNIQUE
+#  index_teachers_on_course_id  (course_id) UNIQUE
 #
 require 'test_helper'
 

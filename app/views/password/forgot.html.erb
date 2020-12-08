@@ -1,14 +1,14 @@
-<div class="text-center py-3">
-  <%= image_tag 'logo.png',height: 150, width: 160 %>
+<div class="text-center py-5">
+  <%= image_tag 'logo_black.png',height: 170, width: 170 %>
   <h1 class="text-center">Password Forgotten</h1>
   <p class="text-center">Enter your email address and we'll send you a link to reset your password:</p>
   <div>
-      <%= @valid %>
-      <form action="/password/forgot" method="POST" class="form-signin">
-          <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-          <input type="text" name="email" placeholder="email" class="form-control mb-3" required autofocus> 
-          <button type="submit" class="btn btn-sm btn-dark btn-block">Submit</button>
-          <%= link_to 'Cancel', login_page_path, class: 'btnSecOption btn btn-sm btn-block' %>
-      </form>
+    <%= @valid %>
+    <form action="/password/forgot" method="POST" class="form-signin">
+      <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+      <input type="text" name="email" placeholder="email" class="form-control mb-3" required autofocus>
+      <button type="submit" class="btn btn-sm btn-dark btn-block">Submit</button>
+      <%= link_to 'Cancel', login_page_path, class: 'btnSecOption btnSecHover btn btn-sm btn-block' %>
+    </form>
   </div>
 </div>

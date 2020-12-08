@@ -3,14 +3,14 @@
 # == Route Map
 #
 #                                Prefix Verb   URI Pattern                                                                              Controller#Action
-#                            classrooms GET    /classrooms(.:format)                                                                    classrooms#index
-#                                       POST   /classrooms(.:format)                                                                    classrooms#create
-#                         new_classroom GET    /classrooms/new(.:format)                                                                classrooms#new
-#                        edit_classroom GET    /classrooms/:id/edit(.:format)                                                           classrooms#edit
-#                             classroom GET    /classrooms/:id(.:format)                                                                classrooms#show
-#                                       PATCH  /classrooms/:id(.:format)                                                                classrooms#update
-#                                       PUT    /classrooms/:id(.:format)                                                                classrooms#update
-#                                       DELETE /classrooms/:id(.:format)                                                                classrooms#destroy
+#                            courses GET    /courses(.:format)                                                                    courses#index
+#                                       POST   /courses(.:format)                                                                    courses#create
+#                         new_course GET    /courses/new(.:format)                                                                courses#new
+#                        edit_course GET    /courses/:id/edit(.:format)                                                           courses#edit
+#                             course GET    /courses/:id(.:format)                                                                courses#show
+#                                       PATCH  /courses/:id(.:format)                                                                courses#update
+#                                       PUT    /courses/:id(.:format)                                                                courses#update
+#                                       DELETE /courses/:id(.:format)                                                                courses#destroy
 #                              students GET    /students(.:format)                                                                      students#index
 #                                       POST   /students(.:format)                                                                      students#create
 #                           new_student GET    /students/new(.:format)                                                                  students#new
@@ -68,7 +68,7 @@
 Rails.application.routes.draw do
   get 'password/reset'
   get 'password/forgot'
-  resources :subjects, :classrooms, :teachers, :schools
+  resources :subjects, :courses, :teachers, :schools
   resources :students
   resources :users
   root 'schools#index'

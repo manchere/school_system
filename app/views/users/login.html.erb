@@ -1,12 +1,11 @@
 <div class ="py-5">
-  <%#%= params %>
   <form action="login" method="POST" class="form-signin">
     <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
     <div class="text-center py-3">
-      <%= image_tag 'logo.png',height: 150, width: 160 %>
+      <%= image_tag 'logo_black.png', height: 170, width: 170 %>
     </div>
     <div class="mb-2">
-      <span class="text-danger mb-4" ><%=  %></span>
+      <span class="text-danger mb-4" ><%= @message %></span>
     </div>
     <div class="mb-3">
       <label for="inputEmail" class="sr-only"></label>

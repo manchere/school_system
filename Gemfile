@@ -23,17 +23,11 @@ gem 'rubocop', '~> 0.92.0', require: false
 gem 'stripe'
 gem 'devise'
 gem 'dotenv-rails', groups: [:development, :test]
-<<<<<<< HEAD
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'htmlbeautifier', '~> 1.3', '>= 1.3.1'
-
-# Reduces boot times through caching; required in config/boot.rb
-=======
->>>>>>> 67c70e1a46cb54ead1be9307d1d910e1292e3585
-gem 'bootsnap', '>= 1.4.2', require: false
-gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
-
+gem 'country_select'
+gem 'nokogiri', '~> 1.10', '>= 1.10.10'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]

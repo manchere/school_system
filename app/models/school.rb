@@ -9,5 +9,5 @@
 #  updated_at      :datetime         not null
 #
 class School < ApplicationRecord
-  has_many :classrooms
+  has_many :courses
 end

@@ -5,10 +5,8 @@
 #  id              :uuid             not null, primary key
 #  country         :string
 #  email           :string
-#  firstname       :string
 #  password_digest :string
 #  reset           :string
-#  surname         :string
 #  username        :string
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null

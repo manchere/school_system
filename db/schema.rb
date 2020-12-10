@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_08_115058) do
+ActiveRecord::Schema.define(version: 2020_12_10_205638) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "hstore"
@@ -46,13 +46,13 @@ ActiveRecord::Schema.define(version: 2020_12_08_115058) do
   end
 
   create_table "fees", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.uuid "student_id"
+    t.uuid "subscription_id"
     t.string "fee_title"
     t.string "fee_description"
     t.money "amount", scale: 2, default: "0.0", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["student_id"], name: "index_fees_on_student_id", unique: true
+    t.index ["subscription_id"], name: "index_fees_on_subscription_id", unique: true
   end
 
   create_table "schools", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -110,8 +110,6 @@ ActiveRecord::Schema.define(version: 2020_12_08_115058) do
   end
 
   create_table "users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.string "firstname"
-    t.string "surname"
     t.string "username"
     t.string "password_digest"
     t.datetime "created_at", precision: 6, null: false

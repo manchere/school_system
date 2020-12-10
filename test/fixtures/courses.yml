@@ -1,17 +1,18 @@
 # == Schema Information
 #
-# Table name: classrooms
+# Table name: courses
 #
-#  id         :uuid             not null, primary key
-#  class_name :string
-#  class_type :string
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#  school_id  :uuid             not null
+#  id          :uuid             not null, primary key
+#  course_name :string
+#  course_type :string
+#  description :text
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  school_id   :uuid             not null
 #
 # Indexes
 #
-#  index_classrooms_on_school_id  (school_id) UNIQUE
+#  index_courses_on_school_id  (school_id) UNIQUE
 #
 
 one:

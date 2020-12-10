@@ -8,11 +8,11 @@
 #  fee_title       :string
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
-#  student_id      :uuid
+#  subscription_id :uuid
 #
 # Indexes
 #
-#  index_fees_on_student_id  (student_id) UNIQUE
+#  index_fees_on_subscription_id  (subscription_id) UNIQUE
 #
 require 'test_helper'
 

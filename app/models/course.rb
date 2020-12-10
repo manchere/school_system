@@ -15,6 +15,7 @@
 #  index_courses_on_school_id  (school_id) UNIQUE
 #
 class Course < ApplicationRecord
-  has_many :students, through: :classroom_students
+  has_many :students, through: :course_students
   belongs_to :school
+  has_many :subjects
 end

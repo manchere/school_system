@@ -8,24 +8,24 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 100.times do
     User.create(
-			firstname: Faker::Name.first_name,
+		firstname: Faker::Name.first_name,
     	surname: Faker::Name.last_name,
     	username: Faker::FunnyName.name_with_initial.to_s.gsub(/\s+/, ""),
     	password_digest: Faker::Internet.password(min_length: 10, max_length: 20, mix_case: true, special_characters: true),
     	email: Faker::Internet.unique.email,
-			created_at: Faker::Date.between(from: 10.years.ago, to: Date.today),
+		created_at: Faker::Date.between(from: 10.years.ago, to: Date.today),
     	country: Faker::Address.country
 		)
 end
 
 100.times do
     School.create(
-			firstname: Faker::Name.first_name,
+		firstname: Faker::Name.first_name,
     	surname: Faker::Name.last_name,
     	username: Faker::FunnyName.name_with_initial.to_s.gsub(/\s+/, ""),
     	password_digest: Faker::Internet.password(min_length: 10, max_length: 20, mix_case: true, special_characters: true),
     	email: Faker::Internet.unique.email,
-			created_at: Faker::Date.between(from: 10.years.ago, to: Date.today),
+		created_at: Faker::Date.between(from: 10.years.ago, to: Date.today),
     	country: Faker::Address.country
 		)
 end
@@ -46,9 +46,9 @@ end
 
 100.times do
 	Student.create(
-		create_table "students", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.uuid "classroom_id", null: false
-    t.string "firstname"
+		students: Faker::
+    	courses: Faker::
+    	firstname:
     t.string "surname"
     t.date "DOB"
     t.date "admission_date"

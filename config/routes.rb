@@ -82,11 +82,11 @@ Rails.application.routes.draw do
   end
 
   get '/search' => 'schools#search', as: 'search_page'
-  get '/login' => 'users#login', as: 'login_page'
-  post '/login' => 'users#login'
+  get '/login' => 'sessions#login', as: 'login_page'
+  post '/login' => 'sessions#login'
 
-  get '/logout' => 'users#logout', as: 'logout_page'
-  post "/logout", to: "users#logout"
+  get '/logout' => 'sessions#logout', as: 'logout_page'
+  post "/logout", to: "sessions#logout"
   
   get 'password/forgot'
   get 'password/reset'

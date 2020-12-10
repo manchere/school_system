@@ -21,8 +21,9 @@
 #
 class Student < ApplicationRecord
   #Relationships
-  has_many :courses, through: :classroom_students
+  has_many :courses, through: :course_students
   has_many :fees
+  belongs_to :user
 
   #Validations
   validates :firstname, presence: true

@@ -19,5 +19,7 @@
 #  index_teachers_on_course_id  (course_id) UNIQUE
 #
 class Teacher < ApplicationRecord
+  #Relationships
   belongs_to :course
+  belongs_to :user
 end

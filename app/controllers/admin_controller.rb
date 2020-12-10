@@ -1,5 +1,11 @@
 class AdminController < ApplicationController
   before_action :check_for_admin
+
+  def admin?
+    
+  end
+  
+
   def check_for_admin
     @admin  = current_user.admin
     if current_user.nil? || !current_user.admin?

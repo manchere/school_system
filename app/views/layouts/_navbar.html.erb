@@ -2,8 +2,8 @@
   <div class="navbar-brand">
     <%= image_tag 'logo_white', width: 30, height: 30 %>
   </div>
-  <%= link_to 'GH School Index', 'path', class: 'navbar-brand' %>
-  <%= link_to  'Schools', 'path', class: 'nav-spec nav-link' %>
+  <%= link_to 'GH School', 'path', class: 'navbar-brand' %>
+  <%= link_to  'Schools', schools_path(@school), class: 'nav-spec nav-link' %>
   <%= link_to  'Students', 'path', class: 'nav-spec nav-link' %>
   <%= link_to  'Rank', 'path', class: 'nav-spec nav-link' %>
   <%= link_to  'Juxtapose', 'path', class: 'nav-spec nav-link' %>

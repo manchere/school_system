@@ -5,10 +5,8 @@
 #  id              :uuid             not null, primary key
 #  country         :string
 #  email           :string
-#  firstname       :string
 #  password_digest :string
 #  reset           :string
-#  surname         :string
 #  username        :string
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
@@ -26,11 +24,14 @@ class User < ApplicationRecord
   has_secure_password
   has_one :subscription
   has_one :admin, dependent: :destroy
+  has_one :teacher
+  has_one :student
 
   #Validations
    validates :password_digest, presence: true
-   validates :username, :email, uniqueness: { case_sensitive: false }
    validates :username, :email, presence: true
+   validates :username, :email, uniqueness: { case_sensitive: false }
+   
   #  validates :username,
     #  format: { with: /\A[a-zA-Z0-9\-\_]+\z/, message: :username },
     #  length: { in: 3..32 }
@@ -40,8 +41,8 @@ class User < ApplicationRecord
   #Callbacks
   after_create :create_subscription
 
-  #methods
+  #methodsr
   def create_subscription
-  Subscription.create(user_id: id) if subscription.nil?
+    Subscription.create(user_id: id) if subscription.nil?
   end
 end

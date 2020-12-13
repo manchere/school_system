@@ -24,8 +24,8 @@ class User < ApplicationRecord
   has_secure_password
   has_one :subscription
   has_one :admin, dependent: :destroy
-  has_one :teacher
-  has_one :student
+  has_one :teacher, dependent: :destroy
+  has_one :student, dependent: :destroy
 
   #Validations
    validates :password_digest, presence: true

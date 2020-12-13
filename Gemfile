@@ -14,6 +14,9 @@ gem 'sass-rails', '>= 6'
 gem 'webpacker', '~> 4.0'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.7'
+gem 'jquery-rails', '~> 4.4'
+gem 'jquery-ui-rails', '~> 6.0', '>= 6.0.1'
+gem 'htmlbeautifier', '~> 1.3', '>= 1.3.1'
 
 gem 'image_processing', '~> 1.2'
 gem 'rss'
@@ -25,7 +28,6 @@ gem 'devise'
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
-gem 'htmlbeautifier', '~> 1.3', '>= 1.3.1'
 gem 'country_select'
 gem 'nokogiri', '~> 1.10', '>= 1.10.10'
 

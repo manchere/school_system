@@ -1,5 +1,4 @@
+<%= @user.email %>
 <%= @user.username %>
-<%= @user.firstname %>
-<%= @user.surname %>
 <%= @user.password_digest %>
-
+<%= render partial: 'usertype' if session[:modal] == true %>

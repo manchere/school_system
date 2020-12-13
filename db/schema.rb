@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_10_205638) do
+ActiveRecord::Schema.define(version: 2020_12_13_140306) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "hstore"
@@ -72,7 +72,6 @@ ActiveRecord::Schema.define(version: 2020_12_10_205638) do
     t.string "nationality"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "email_address"
     t.string "gender"
     t.index ["course_id"], name: "index_students_on_course_id", unique: true
   end
@@ -103,7 +102,6 @@ ActiveRecord::Schema.define(version: 2020_12_10_205638) do
     t.date "DOB"
     t.date "date_of_employment"
     t.string "contact"
-    t.string "email_address"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["course_id"], name: "index_teachers_on_course_id", unique: true

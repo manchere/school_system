@@ -1,5 +1,25 @@
 <h1>New Teacher</h1>
-
-<%= render 'form', teacher: @teacher %>
-
 <%= link_to 'Back', teachers_path %>
+<div class="container">
+  <div class ="row mt-5">
+    <div class="col-sm">
+      <%= form_with model: @teacher, class: 'form-signin', local: true do |f| %>
+        <div>
+          <% if @teacher.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(@teacher.errors.count, "error") %>  teacher could not be registered:</h2>
+              <ul>
+                <% @teacher.errors.each do |attribute, message| %>
+                  <li class="text-danger text-center mb-4"><%= message %></li>
+                <% end %>
+              </ul>
+            </div>
+          <% end %>
+          <%= render partial: 'form', locals: { f: f }%>
+          <%= f.submit 'save', class: 'btn btn-sm btn-dark btn-block' %>
+          <hr>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -6,7 +6,6 @@
 #  DOB                :date
 #  contact            :string
 #  date_of_employment :date
-#  email_address      :string
 #  firstname          :string
 #  middle_name        :string
 #  surname            :string

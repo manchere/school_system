@@ -5,9 +5,9 @@
         <div>
           <% if @user.errors.any? %>
             <div id="error_explanation">
-              <h2><%= pluralize(@user.errors.count, "error") %>  user could not be saved:</h2>
+              <h2><%= pluralize(@user.errors.count, "error") %>  user could not be registered:</h2>
               <ul>
-                <% @user.errors.full_messages.each do |message| %>
+                <% @user.errors.each do |attribute, message| %>
                   <li class="text-danger text-center mb-4"><%= message %></li>
                 <% end %>
               </ul>
@@ -24,3 +24,4 @@
     </div>
   </div>
 </div>
+

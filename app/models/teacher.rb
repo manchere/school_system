@@ -21,4 +21,8 @@ class Teacher < ApplicationRecord
   #Relationships
   belongs_to :course
   belongs_to :user
+  has_one_attached :profile_image
+
+  #Validations
+  validates :firstname, :surname, presence: true
 end

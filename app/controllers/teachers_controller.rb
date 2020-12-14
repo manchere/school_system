@@ -1,5 +1,6 @@
 class TeachersController < ApplicationController
   before_action :set_teacher, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authorized, only: [:index, :new, :create, :show]
 
   # GET /teachers
   # GET /teachers.json
@@ -69,6 +70,6 @@ class TeachersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def teacher_params
-      params.require(:teacher).permit(:firstname, :middle_name, :surname, :DOB, :date_of_employment, :contact, :email_address)
+      params.require(:teacher).permit(:firstname, :middle_name, :surname, :DOB, :date_of_employment, :contact, :email_address, :profile_image)
     end
 end

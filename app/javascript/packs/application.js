@@ -11,6 +11,8 @@
 
 //= require jquery-ui
 //= require jquery_ujs
+//= require bootstrap
+//= require turbolinks
 
 require("@rails/ujs").start();
 require("turbolinks").start();

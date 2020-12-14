@@ -1,39 +1,35 @@
 <p id="notice"><%= notice %></p>
-
 <p>
   <strong>Firstname:</strong>
   <%= @teacher.firstname %>
 </p>
-
 <p>
   <strong>Middle name:</strong>
   <%= @teacher.middle_name %>
 </p>
-
 <p>
   <strong>Surname:</strong>
   <%= @teacher.surname %>
 </p>
-
 <p>
   <strong>Dob:</strong>
   <%= @teacher.DOB %>
 </p>
-
 <p>
   <strong>Date of employment:</strong>
   <%= @teacher.date_of_employment %>
 </p>
-
 <p>
   <strong>Contact:</strong>
   <%= @teacher.contact %>
 </p>
-
 <p>
   <strong>Email address:</strong>
   <%= @teacher.email_address %>
 </p>
-
+<p>
+  <strong>Image</strong>
+  <%= link_to image_tag(@teacher.profile_image), teachers_path  %>
+</p>
 <%= link_to 'Edit', edit_teacher_path(@teacher) %> |
 <%= link_to 'Back', teachers_path %>

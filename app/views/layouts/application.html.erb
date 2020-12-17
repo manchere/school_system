@@ -1,25 +1,22 @@
 <!DOCTYPE html>
 <html>
-
-<head>
+  <head>
     <title><%=full_title(yield(:title)) %></title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    
-</head>
-    <link rel=”icon” type=”image/ico” href=”assets/images/logo_white.png” />
-</head>
+      <%= csrf_meta_tags %>
+      <%= csp_meta_tag %>
+      <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+      <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <link rel=”icon” type=”image/ico” href=”assets/images/logo_white.png” />
+</head
 
 <body>
-	<%= render 'layouts/navbar' unless controller_name =='users' && action_name == 'login' or controller_name == 'password' && action_name =='forgot' or controller_name == 'password' && action_name =='reset' %> 
-    <div>
-        <%= yield %>  
-    </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<%= render 'layouts/navbar' unless controller_name =='users' && action_name == 'login' or controller_name == 'password' && action_name =='forgot' or controller_name == 'password' && action_name =='reset' %> 
+  <div>
+    <%= yield %>  
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </body>
   
 </html>

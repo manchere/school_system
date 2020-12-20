@@ -1,16 +1,47 @@
-<nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap shadow">
-  <div class="navbar-brand">
-    <%= image_tag 'logo_white', width: 30, height: 30 %>
-  </div>
-  <%= link_to 'GH School', 'path', class: 'navbar-brand' %>
-  <%= link_to  'Schools', schools_path(@school), class: 'nav-spec nav-link' %>
-  <%= link_to  'Students', 'path', class: 'nav-spec nav-link' %>
-  <%= link_to  'Rank', 'path', class: 'nav-spec nav-link' %>
-  <%= link_to  'Juxtapose', 'path', class: 'nav-spec nav-link' %>
-  <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-toggle="collapse" data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+<nav class="navbar navbar-expand-lg bg-dark shadow">
+  <a class="navbar-brand nav-spec" href="#">
+    <%= image_tag 'logo_white', width: 30, height: 30, class:'d-inline-block align-top', alt:''%>
+    Gh School
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <span class="input-group justify-content-end">
+  <div class="collapse navbar-collapse">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item active">
+        <%= link_to 'Schools', schools_path(@school), class: 'nav-link nav-spec' %><span class="sr-only">(current)</span>
+      </li>
+      <li class="nav-item">
+        <%= link_to  'Students', 'path', class: 'nav-link nav-spec' %>
+      </li>
+      <li class="nav-item">
+        <%= link_to  'Rank', 'path', class: 'nav-link nav-spec' %>
+      </li>
+      <li class="nav-item">
+        <%= link_to  'Register', new_user_path, class: 'nav-link nav-spec' %>
+      </li>
+      <% if !logged_in? %>
+        <li class="nav-item">
+          <%= link_to 'Sign in', login_page_path , class:'nav-link nav-spec' %>
+        </li>
+      <% else %>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle nav-spec" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <%= current_user.username if current_user %>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <%= link_to  'Your profile', user_path(current_user), class: 'dropdown-item' %>
+            <%= link_to  'Your bookmarks', 'path', class: 'dropdown-item' %>
+            <%= link_to  'Recent views', 'path', class: 'dropdown-item' %>
+            <div class="dropdown-divider"></div>
+            <%= link_to  'Help Center', 'path', class: 'dropdown-item' %>
+            <%= link_to  'Settings', 'path', class: 'dropdown-item' %>
+            <div class="dropdown-divider"></div>
+            <%= link_to 'Sign out', logout_page_path, method: :logout, class:'dropdown-item' %>
+          </div>
+        </li>
+      <% end %>
+    </ul>
     <%= form_tag(search_page_path, method: :get, class: 'form-inline') do %>
       <div class="input-group">
         <%= search_field_tag :search, params[:search], placeholder: 'Search', class: 'form-control', id: 'search_field' %>
@@ -19,33 +50,5 @@
         </div>
       </div>
     <% end %>
-  </span>
-  <div class="dropdown">
-    <button class="btn dropdown-toggle nav-spec nav-link" id="search_field" type="button" data-toggle="dropdown"><%= current_user.username if current_user %>
-      <span class="caret"></span></button>
-    <ul class="dropdown-menu">
-      <li><a href="#">HTML</a></li>
-      <li><a href="#">CSS</a></li>
-      <li><a href="#">JavaScript</a></li>
-    </ul>
   </div>
-  <ul class="navbar-nav px-3">
-    <li class="nav-item text-nowrap">
-      <% if logged_in? %>
-        <%= link_to 'Sign out', logout_page_path, method: :logout, class:'nav-spec nav-link' %>
-      <% else %>
-        <%= link_to 'Sign in', login_page_path , class:'nav-spec nav-link' %>
-      <% end %>
-    </li>
-  </ul>
-  <span>
-    <ul class="navbar-nav px-3">
-      <li class="nav-item text-nowrap">
-        <%= link_to 'Register', new_user_path, class:'nav-spec nav-link' %>
-      </li>
-    </ul>
-  </span>
-  <span class="input-group-btn text-success">
-    <%= !current_user.nil? ? current_user.username : '' %>
-  </span>
 </nav>

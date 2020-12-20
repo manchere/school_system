@@ -12,5 +12,4 @@ module ApplicationHelper
   def error_message_for(object)
     render(partial: 'layout/error_messages', locals: { object: object })
   end
-
 end

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%=full_title(yield(:title)) %></title>
+    <title><%= full_title(yield(:title)) %></title>
       <%= csrf_meta_tags %>
       <%= csp_meta_tag %>
       <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -11,12 +11,11 @@
 </head
 
 <body>
-<%= render 'layouts/navbar' unless controller_name =='users' && action_name == 'login' or controller_name == 'password' && action_name =='forgot' or controller_name == 'password' && action_name =='reset' %> 
+  <%= render 'layouts/navbar' unless controller_name =='users' && action_name == 'login' or controller_name == 'password' && action_name =='forgot' or controller_name == 'password' && action_name =='reset' %> 
   <div>
     <%= yield %>  
   </div>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </body>
   
 </html>

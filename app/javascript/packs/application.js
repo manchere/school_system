@@ -9,11 +9,7 @@
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
 
-//= require jquery-ui
-//= require jquery_ujs
-//= require bootstrap
-//= require turbolinks
-
+import "bootstrap";
 require("@rails/ujs").start();
 require("turbolinks").start();
 require("@rails/activestorage").start();

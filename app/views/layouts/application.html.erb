@@ -8,13 +8,20 @@
       <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <link rel=”icon” type=”image/ico” href=”assets/images/logo_white.png” />
-</head
+</head>
 
-<body>
-  <%= render 'layouts/navbar' unless controller_name =='users' && action_name == 'login' or controller_name == 'password' && action_name =='forgot' or controller_name == 'password' && action_name =='reset' %> 
+<body data-page="<%= controller_name %>-<%= action_name %>">
+  
+  <% unless current_page?(login_page_path) || current_page?(password_forgot_path) || current_page?(password_reset_path) %>
+    <%= render 'layouts/navbar' %>
+  <% end %> 
+
+  <%#= render 'layouts/accnt_navbar' if (@user) %>
+
   <div>
     <%= yield %>  
   </div>
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </body>
   

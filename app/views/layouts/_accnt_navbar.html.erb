@@ -1,0 +1,18 @@
+<!-- Image and text -->
+<nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand nav-spec" href="#">
+    <%= image_tag 'logo_black.png', width: 30, height: 30, class:'d-inline-block align-top', alt:''%>
+    Gh School
+    <span>Account</span>
+  </a>
+  <%= form_tag(search_page_path, method: :get, class: 'form-inline') do %>
+    <div class="input-group">
+      <%= search_field_tag :search, params[:search], placeholder: 'Search your account', class: 'form-control', id: 'search_field' %>
+      <div class="">
+        <%= button_tag(class: 'btn btn btnSecOption btn-block', id: 'search_btn', name: nil) do %>
+          <i class="fas fa-search"></i>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</nav>

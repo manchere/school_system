@@ -1,4 +1,37 @@
+<div class="card p-1 m-3">
+  <h3 class="card">Welcome, <%= @user.username %></h3>
+  <div class="card-body">
+    <h5 class="card-title">Special title treatment</h5>
+    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+<div class="card p-1 m-3" >
+  <div class="row m-3">
+    <div class="col-sm-6">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Special title treatment</h5>
+          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Special title treatment</h5>
+          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="card p-1 m-3">
+  <%#= render partial: 'usertype' unless @user.teacher || @user.student %>
+</div>
 <%= @user.email %>
 <%= @user.username %>
-<%= @user.password_digest %>
-<%= render partial: 'usertype' if session[:modal] == true %>
+<%= @user.country %>
+<%= @user.created_at %>

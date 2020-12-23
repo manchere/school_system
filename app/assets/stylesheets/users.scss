@@ -1,3 +1,16 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.btn-usertype {
+  color: white;
+  font-size: 20px;
+  padding: 10px 40px;
+  background-color: #212529; /* For browsers that do not support gradients */
+  background-image: linear-gradient(to bottom right, #212529, #1d5fa1);
+  border-radius: 0.5rem;
+  border: 0px solid transparent;
+  &:active {
+    background-image: linear-gradient(to bottom right, #1d5fa1, #212529);
+  }
+}

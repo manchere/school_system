@@ -10,6 +10,13 @@ module ApplicationHelper
   end
 
   def error_message_for(object)
-    render(partial: 'layout/error_messages', locals: { object: object })
+    render(partial: 'layouts/error_messages', locals: { object: object })
   end
+
+  def nav_exclude_render(navbar, controller, *actions)
+    if controller_name != controller && actions.any?{ |action| action != action_name }
+      render partial: navbar unless render navbar
+    end
+  end
+  
 end

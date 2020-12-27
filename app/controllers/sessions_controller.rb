@@ -27,4 +27,14 @@ class SessionsController < ApplicationController
     @user.admin
     @user = user.admin
   end
+
+  # def omniauth
+  #   User.find_create_or_omniauth(auth)
+  #   if user.valid?
+  #     session[:user_id] = user.id
+  #     redirect_to schools_path
+  #   else
+  #     redirect_to login_page_path
+  #   end
+  # end
 end

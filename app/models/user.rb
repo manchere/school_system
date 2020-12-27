@@ -45,4 +45,13 @@ class User < ApplicationRecord
   def create_subscription
     Subscription.create(user_id: id) if subscription.nil?
   end
+
+  # def self.find_create_or_omniauth(auth)
+  #   User.find_or_create_by(uid: auth['uid'], provider: auth['provider']) do |user|
+  #     user.username = auth['info']['first_name'].slice(0..2) + auth['info']['last_name'].slice(3..-1)
+  #     user.email = auth['info']['first_name']
+  #     user.password_digest = SecureRamdom.hex(16)
+  #   end
+  # end
+ 
 end

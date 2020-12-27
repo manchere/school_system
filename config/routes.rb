@@ -96,6 +96,9 @@ Rails.application.routes.draw do
 
   get '/users/info', to: 'users#info'
 
+  #google authentication route
+  get '/auth/:provider/callback', to: 'sessions#omniauth'
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   
 end

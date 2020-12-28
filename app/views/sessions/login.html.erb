@@ -24,8 +24,16 @@
       </div>
     </label>
     <button class="btn btn-sm btn-dark btn-block" type="submit">Sign in</button>
-    <hr>
-    <%= link_to 'Create an account', new_user_path, class: 'btnSecOption btnSecHover btn btn-sm btn-block' %>
-    <p class="mt-3 mb-3 text-muted">&copy; <%= "2017 - #{Time.now.year}" %></p>
   </form>
+  <div class="btn-omniauth">
+    <%= button_to '/auth/google_oauth2', class: 'btn btn-sm btn-block btnSG btnSGHover mb-3' do %>
+      <i class="fab fa-google fa-fw"></i>&nbsp Sign in with google
+    <% end %>
+    <%= button_to '/auth/google_oauth2', class: 'btn btn-sm btn-block btnSecOption btnSecHover' do %>
+      <i class="fab fa-facebook fa-fw"></i>&nbsp Sign in with facebook
+    <% end %>
+    <hr>
+    <%= link_to 'Create an account', new_user_path, class: 'btn btn-sm btn-block btnSecOption btnSecHover' %>
+    <p class="mt-3 mb-3 text-muted">&copy; <%= "2017 - #{Time.now.year}" %></p>
+  </div>
 </div>

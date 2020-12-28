@@ -16,10 +16,10 @@
 #  index_identities_on_user_id           (user_id)
 #
 class Identity < ApplicationRecord
-
   #Attributes
   PROVIDERS = %w(facebook google_oauth2)
   serialize :additional_data, HashSerializer
+  attr_accessor :provider, :uid, :user_id
   # Relationships
   belongs_to :user
 
@@ -27,9 +27,10 @@ class Identity < ApplicationRecord
   validates :provider, inclusion: { in: PROVIDERS }
   validates :uid, presence: true, uniqueness: { scope: :provider }
 
-  # def create_from_oauth(auth)
-  #   identity.email.blank?
-  # end
-
+  def find_by_oauth(auth)
+    identity = find_or_create_by(uid: auth['uid'], provider: auth['provider']) do |identity|
+      identity.additional_data = auth['info']
+      identity.user_id = current_user ? current_user.id : u = User.create_user_for_oauth(identity)
+  end
 end
 

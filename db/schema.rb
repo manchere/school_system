@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_14_145710) do
+ActiveRecord::Schema.define(version: 2020_12_27_153324) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "hstore"
@@ -74,6 +74,17 @@ ActiveRecord::Schema.define(version: 2020_12_14_145710) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["subscription_id"], name: "index_fees_on_subscription_id", unique: true
+  end
+
+  create_table "identities", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "user_id"
+    t.string "uid", null: false
+    t.string "provider", null: false
+    t.jsonb "additional_data", default: "{}"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["uid", "provider"], name: "index_identities_on_uid_and_provider", unique: true
+    t.index ["user_id"], name: "index_identities_on_user_id"
   end
 
   create_table "schools", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|

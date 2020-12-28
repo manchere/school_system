@@ -14,14 +14,10 @@
             </div>
           <% end %>
           <%= render partial: 'form', locals: { f: f }%>
-          <%= f.submit 'Create account', class: 'btn btn-sm btn-dark btn-block' %>
           <hr>
-          <%= link_to 'Register with facebook', new_user_path, class: 'btnSecOption btn btn-sm btn-block btnSecHover' %>
-          <%= link_to 'Register with google', new_user_path, class: 'btnSG btnSGHover btn btn-sm btn-block' %>
-          <i class="btn-facebook"></i>
+          <%= f.submit 'Create account', class: 'btn btn-sm btn-dark btn-block' %>
         </div>
       <% end %>
     </div>
   </div>
 </div>
-

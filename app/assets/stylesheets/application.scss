@@ -77,3 +77,22 @@ a:hover {
     }
   }
 }
+
+.dropdown.no-arrow {
+  .dropdown-toggle::after {
+    display: none;
+  }
+}
+
+.icon-neutral {
+  &:hover {
+    color: white;
+  }
+}
+
+.btn-omniauth {
+  width: 100%;
+  max-width: 330px;
+  padding: 0px 15px 5px;
+  margin: auto;
+}

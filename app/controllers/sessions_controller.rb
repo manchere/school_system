@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
 
-  skip_before_action :authorized, only: [:login, :logout, :index, :new, :create, :show]
+  skip_before_action :authorized, only: [:login, :logout, :index, :new, :create, :show, :omniauth]
   def new
     @user = User.new
   end
@@ -37,4 +37,19 @@ class SessionsController < ApplicationController
   #     redirect_to login_page_path
   #   end
   # end
+  def omniauth(auth)
+    user = User.create_from_omniauth(auth)
+    if user.valid?
+      session[:user_id] = user.id
+      redirect_to schools_path
+    else
+      # flash[:message] = user.errors.full_messages.join(", ")
+      # redirect_to forgot_path
+    end
+  end
+
+  private
+  def auth
+    request.env['omniauth.auth']
+  end
 end

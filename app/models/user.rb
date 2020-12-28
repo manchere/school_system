@@ -26,6 +26,7 @@ class User < ApplicationRecord
   has_one :admin, dependent: :destroy
   has_one :teacher, dependent: :destroy
   has_one :student, dependent: :destroy
+  has_many :identities
 
   #Validations
    validates :password_digest, presence: true
@@ -41,7 +42,7 @@ class User < ApplicationRecord
   #Callbacks
   after_create :create_subscription
 
-  #methodsr
+  #methods
   def create_subscription
     Subscription.create(user_id: id) if subscription.nil?
   end
@@ -54,4 +55,15 @@ class User < ApplicationRecord
   #   end
   # end
  
+  # def self.create_from_omniauth(auth)
+  #     identity.find_or_create_by(id: auth['uid'], provider: auth['provider']) do |user|
+  #     user.username = auth['info']['first_name'].slice(0..2) + auth['info']['last_name'].slice(3..-1)
+  #     user.email = auth['info']['first_name']
+  #     user.password_digest = SecureRamdom.hex(16)
+  #   end
+  # end
+
+  def create_user_for_oauth(identity)
+    if identity.blank?)
+  end
 end

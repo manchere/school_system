@@ -29,9 +29,9 @@ class User < ApplicationRecord
   has_many :identities
 
   #Validations
-   validates :password_digest, presence: true
-   validates :username, :email, presence: true
-   validates :username, :email, uniqueness: { case_sensitive: false }
+  validates :password_digest, presence: true
+  validates :username, :email, presence: true
+  validates :email, uniqueness: { case_sensitive: false }
    
   #  validates :username,
     #  format: { with: /\A[a-zA-Z0-9\-\_]+\z/, message: :username },
@@ -46,24 +46,11 @@ class User < ApplicationRecord
   def create_subscription
     Subscription.create(user_id: id) if subscription.nil?
   end
-
-  # def self.find_create_or_omniauth(auth)
-  #   User.find_or_create_by(uid: auth['uid'], provider: auth['provider']) do |user|
-  #     user.username = auth['info']['first_name'].slice(0..2) + auth['info']['last_name'].slice(3..-1)
-  #     user.email = auth['info']['first_name']
-  #     user.password_digest = SecureRamdom.hex(16)
-  #   end
-  # end
  
-  # def self.create_from_omniauth(auth)
-  #     identity.find_or_create_by(id: auth['uid'], provider: auth['provider']) do |user|
-  #     user.username = auth['info']['first_name'].slice(0..2) + auth['info']['last_name'].slice(3..-1)
-  #     user.email = auth['info']['first_name']
-  #     user.password_digest = SecureRamdom.hex(16)
-  #   end
-  # end
-
-  def create_user_for_oauth(identity)
-    if identity.blank?)
+  def add_provider(auth)
+    unless identities.find_by_provider_and_uid(auth['provider'],auth['uid'])
+      Identity.create user: self, provider: auth['provider'], uid: auth['uid']
+    end
   end
+  
 end

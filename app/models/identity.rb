@@ -29,26 +29,24 @@ class Identity < ApplicationRecord
   validates :provider, inclusion: { in: PROVIDERS }
   validates :uid, presence: true, uniqueness: { scope: :provider }
 
-  def self.find_or_create(auth)
-    unless auth_user = find_by_provider_and_uid(auth['provider'], auth['uid'])
-     user = User.create username: auth['info']['name'], email: auth['info']['email'], password: SecureRandom.hex(16)
-    #  user.identities.build provider: auth['provider'], uid: auth['uid'], additional_data: auth['info']
-    byebug
-     auth_user = create user: user, provider: auth['provider'], uid: auth['uid']
-    end
+  # def self.find_or_create(auth)
+  #   unless auth_user = find_by_provider_and_uid(auth['provider'], auth['uid'])
+  #    user = User.create username: auth['info']['name'], email: auth['info']['email'], password: SecureRandom.hex(16)
+  #   #  user.identities.build provider: auth['provider'], uid: auth['uid'], additional_data: auth['info']
+  #   byebug
+  #    auth_user = create user: user, provider: auth['provider'], uid: auth['uid']
+  #   end
 
-    auth_user
+  #   auth_user
+  # end
+
+  def self.find_with_omniauth(auth)
+    find_by(uid: auth['uid'], provider: auth['provider'])
   end
 
-  def name
-    additional_data['name']
+  def self.create_with_omniauth(auth)
+    create uid: auth['uid'], provider: auth['provider']
   end
+ 
   
-  def email
-    additional_data['email']
-  end
-
-  def avatar_url
-    additional_data['image']
-  end
 end

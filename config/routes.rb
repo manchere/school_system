@@ -66,8 +66,7 @@
 #                  rails_direct_uploads POST   /rails/active_storage/direct_uploads(.:format)                                           active_storage/direct_uploads#create
 
 Rails.application.routes.draw do
-  get 'password/reset'
-  get 'password/forgot'
+
   resources :subjects, :courses, :teachers, :schools
   resources :students
   resources :users
@@ -96,7 +95,7 @@ Rails.application.routes.draw do
 
   get '/users/info', to: 'users#info'
 
-  #google authentication route
+  #omni authentication route
   get '/auth/:provider/callback', to: 'sessions#create_omniauth'
   get '/auth/failure', :to => 'sessions#failure'
 

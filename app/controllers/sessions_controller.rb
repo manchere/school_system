@@ -27,10 +27,6 @@ class SessionsController < ApplicationController
 
   def create_omniauth
     @identity = Identity.find_with_omniauth(auth)
-
-    # if logged_in?
-    #   redirect_to schools_path if @identity
-    # else
       if @identity.nil?
         user = User.find_or_create_user_if_email(auth)
         session[:user_id] = user.id

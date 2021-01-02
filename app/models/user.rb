@@ -26,7 +26,7 @@ class User < ApplicationRecord
   has_one :admin, dependent: :destroy
   has_one :teacher, dependent: :destroy
   has_one :student, dependent: :destroy
-  has_many :identities
+  has_many :identites
 
   #Validations
   validates :password_digest, presence: true
@@ -46,14 +46,17 @@ class User < ApplicationRecord
   def create_subscription
     Subscription.create(user_id: id) if subscription.nil?
   end
- 
-  # def add_provider(auth)
-  #   unless identities.find_by_provider_and_uid(auth['provider'],auth['uid'])
-  #     Identity.create user: self, provider: auth['provider'], uid: auth['uid']
-  #   end
-  # end
-  
-  def self.create_omniauth(auth)
-    create name: auth['name']
+
+  def self.find_or_create_user_if_email(auth)
+    unless user = User.find_by(email: auth['info']['email'])
+      user = create! username: auth['info']['name'].parameterize, email: auth['info']['email'].to_s.downcase, password_digest: SecureRandom.hex(16) if auth['info']['email'].to_s.present?
+    end
+     Identity.create user: user, provider: auth['provider'], uid: auth['uid']    
+    user
   end
+
+    def self.add_provider(user, auth)
+    Identity.create user: user, provider: auth['provider'], uid: auth['uid']
+    end
+  
 end

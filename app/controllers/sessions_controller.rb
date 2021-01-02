@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
       user = User.find_by_email(params[:email])
       if user && user.authenticate(params[:password])
         session[:user_id] = user.id
-        redirect_to '/schools'
+        redirect_to schools_path
       else
         @message = 'Login or password incrorrect.'
       end  
@@ -23,75 +23,22 @@ class SessionsController < ApplicationController
   end
 
   def new_admin
-    @user = User.find(params[:id])
-    @user.admin
-    @user = user.admin
   end
 
-  # def omniauth
-  #   User.find_create_or_omniauth(auth)
-  #   if user.valid?
-  #     session[:user_id] = user.id
-  #     redirect_to schools_path
-  #   else
-  #     redirect_to login_page_path
-  #   end
-  # end
-
-  # def omniauth
-  #   user = Identity.find_by_oauth(auth, current_user)
-  #   if user.valid?
-  #     session[:user_id] = user.id
-  #     redirect_to schools_path
-  #   else
-  #      flash[:message] = user.errors.full_messages.join(", ")
-  #      redirect_to login_page_path
-  #   end
-  # end
-
-  # def create_omniauth  
-  #   if auth_user = User.find_by_email(auth['info']['email'])
-  #     byebug
-  #     User.find(auth_user.id).add_provider(auth)
-      
-  #     redirect_to schools_path
-  #   else
-  #     auth_user = Identity.find_or_create(auth)
-  #     session[:user_id] = auth_user.user.id
-      
-  #     redirect_to schools_path
-  #   end
-  #   byebug
-  # end
   def create_omniauth
-
     @identity = Identity.find_with_omniauth(auth)
 
-    if @identity.nil?
-      
-      @identity = Identity.create_with_omniauth(auth)
-    end
-
-    if logged_in?
-      if @identity.user == current_user
-      
-        redirect_to root_url, notice: "Already linked that account!"
+    # if logged_in?
+    #   redirect_to schools_path if @identity
+    # else
+      if @identity.nil?
+        user = User.find_or_create_user_if_email(auth)
+        session[:user_id] = user.id
+        redirect_to new_teacher_path 
       else
-        
-        @identity.user = current_user
-        @identity.save
-        redirect_to root_url, notice: "Successfully linked that account!"
+        session[:user_id] = @identity.user.id  
+        redirect_to new_user_path
       end
-    else
-      if @identity.user.present?
-       
-        self.current_user = @identity.user
-        redirect_to root_url, notice: "Signed in!"
-      else
-        
-        redirect_to new_user_url, notice: "Please finish registering"
-      end
-    end
   end
 
   protected

@@ -16,8 +16,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      session[:modal] = true
-      redirect_to @user
+      redirect_to login_page_path
     else
       render 'new'
     end

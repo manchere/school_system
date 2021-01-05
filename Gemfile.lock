@@ -155,6 +155,8 @@ GEM
     omniauth (1.9.1)
       hashie (>= 3.4.6)
       rack (>= 1.6.2, < 3)
+    omniauth-facebook (8.0.0)
+      omniauth-oauth2 (~> 1.2)
     omniauth-google-oauth2 (0.8.0)
       jwt (>= 2.0)
       omniauth (>= 1.1.1)
@@ -272,6 +274,8 @@ GEM
     sort_alphabetical (1.1.0)
       unicode_utils (>= 1.2.2)
     spring (2.1.1)
+    spring-commands-rspec (1.0.4)
+      spring (>= 0.9.1)
     spring-watcher-listen (2.0.1)
       listen (>= 2.7, < 4.0)
       spring (>= 1.2, < 3.0)
@@ -338,6 +342,7 @@ DEPENDENCIES
   listen (~> 3.2)
   nokogiri (~> 1.10, >= 1.10.10)
   omniauth
+  omniauth-facebook (~> 8.0)
   omniauth-google-oauth2
   omniauth-rails_csrf_protection
   pg
@@ -350,6 +355,7 @@ DEPENDENCIES
   sass-rails (>= 6)
   selenium-webdriver
   spring
+  spring-commands-rspec
   spring-watcher-listen (~> 2.0.0)
   stripe
   turbolinks (~> 5)

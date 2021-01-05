@@ -6,16 +6,17 @@ class SessionsController < ApplicationController
   end
 
   def login
-    if params[:email]
-      user = User.find_by_email(params[:email])
-      if user && user.authenticate(params[:password])
-        session[:user_id] = user.id
+    if params[:username_email]
+      if user_search && user_search.authenticate(params[:password])
+        session[:user_id] = user_search.id
         redirect_to schools_path
       else
         @message = 'Login or password incrorrect.'
       end  
     end
   end
+
+
 
   def logout
     session[:user_id] = nil
@@ -40,5 +41,10 @@ class SessionsController < ApplicationController
   protected
   def auth
     request.env['omniauth.auth']
+  end
+
+  def user_search
+    user = User.find_by_email(params[:username_email])
+    user.nil? ? user = User.find_by_username(params[:username_email]) : user
   end
 end

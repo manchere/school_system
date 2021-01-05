@@ -31,6 +31,7 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'country_select'
 gem 'nokogiri', '~> 1.10', '>= 1.10.10'
 gem 'omniauth'
+gem 'omniauth-facebook', '~> 8.0'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-rails_csrf_protection'
 
@@ -38,6 +39,7 @@ group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'factory_bot', '~> 4.8', '>= 4.8.2'
   gem 'rspec-rails'
+  gem 'spring-commands-rspec'
   gem 'faker'
 end
 

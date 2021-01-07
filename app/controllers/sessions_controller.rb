@@ -16,8 +16,6 @@ class SessionsController < ApplicationController
     end
   end
 
-
-
   def logout
     session[:user_id] = nil
     redirect_to login_page_path
@@ -31,10 +29,10 @@ class SessionsController < ApplicationController
       if @identity.nil?
         user = User.find_or_create_user_if_email(auth)
         session[:user_id] = user.id
-        redirect_to new_teacher_path 
+        redirect_to schools_path 
       else
         session[:user_id] = @identity.user.id  
-        redirect_to new_user_path
+        redirect_to schools_path
       end
   end
 

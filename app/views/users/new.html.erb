@@ -3,21 +3,14 @@
     <div class="col-sm">
       <%= form_with model: @user, class: 'form-signin', local: true do |f| %>
         <div>
-          <% if @user.errors.any? %>
-            <div id="error_explanation">
-              <h2><%= pluralize(@user.errors.count, "error") %>  user could not be registered:</h2>
-              <ul>
-                <% @user.errors.each do |attribute, message| %>
-                  <li class="text-danger tex t-center mb-4"><%= message %></li>
-                <% end %>
-              </ul>
-            </div>
-          <% end %>
           <%= render partial: 'form', locals: { f: f }%>
-          <hr>
           <%= f.submit 'Create account', class: 'btn btn-sm btn-dark btn-block' %>
+          <hr>
         </div>
       <% end %>
+      <div class="btn-omniauth">
+        <%= render 'layouts/oauth_buttons' %>
+      </div>
     </div>
   </div>
 </div>

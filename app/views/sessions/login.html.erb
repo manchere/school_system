@@ -16,22 +16,19 @@
       <input type="password" name="password" placeholder="Password"  class="form-control" required>
     </div>
     <label>
-      <div class="checkbox mt-3">
+      <div class="checkbox mt-3 small">
         <input type="checkbox" value="remember-me"> Remember me
       </div>
-      <div class="mt-3">
+      <div class="mt-3 small">
         <%= link_to 'Forgot password?', password_forgot_path %>
       </div>
     </label>
     <button class="btn btn-sm btn-dark btn-block" type="submit">Sign in</button>
   </form>
   <div class="btn-omniauth">
-    <%= button_to '/auth/google_oauth2', class: 'btn btn-sm btn-block btnSG btnSGHover mb-3' do %>
-      <i class="fab fa-google fa-fw"></i>&nbsp Sign in with google
-    <% end %>
-    <%= button_to '/auth/google_oauth2', class: 'btn btn-sm btn-block btnSecOption btnSecHover' do %>
-      <i class="fab fa-facebook fa-fw"></i>&nbsp Sign in with facebook
-    <% end %>
+    <%= render partial: 'layouts/oauth_buttons' %>
+  </div>
+  <div class="btn-omniauth">
     <hr>
     <%= link_to 'Create an account', new_user_path, class: 'btn btn-sm btn-block btnSecOption btnSecHover' %>
     <p class="mt-3 mb-3 text-muted">&copy; <%= "2017 - #{Time.now.year}" %></p>

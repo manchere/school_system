@@ -9,9 +9,9 @@ class PasswordController < ApplicationController
         token = SecureRandom.hex(10)
         user.reset = token
         user.save
-        ResetMailer.with(user: @user).reset_password
+        ResetMailer.with(user: user).reset_password
       end
-      render plain: 'A link to reset the password has been sent to the email' + user.reset
+      render plain: 'A link to reset the password has been sent to the email ' + user.email
     end
   end
 

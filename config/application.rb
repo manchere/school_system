@@ -22,6 +22,7 @@ module SchoolSystem
       helper_specs: true,
       routing_specs: true,
       controller_specs: true
+      g.fixture_replacement :factory_bot, dir: 'spec/factories'
     end
   end
 end
